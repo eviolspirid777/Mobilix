@@ -1,8 +1,10 @@
 import Image from "next/image";
 import styles from "./index.module.scss";
+import { goods } from "@/goods/goods";
+import { ProductCard } from "@/components/ProductCard/ProductCard";
 
 export default function Main() {
-  
+
 
   return (
     <div
@@ -14,6 +16,8 @@ export default function Main() {
         <Image
           src="/Logo.png"
           alt="Mobilix"
+          width={184}
+          height={28}
         />
         <nav
           className={styles["mobilix-block-header-nav-menu"]}
@@ -29,13 +33,29 @@ export default function Main() {
       <main
         className={styles["mobilix-block-main"]}
       >
-        <Image
-          src="/Swiper_Slide.jpg"
-          alt="Айфон"
-        />
-        <h3>iPhone 16 Pro Max</h3>
-        <h4>Технологии будущего</h4>
-        <button>Купить</button>
+        <div
+          className={styles["mobilix-block-main-slider"]}
+        >
+          <h3>iPhone 16 Pro Max</h3>
+          <h4>
+            Технологии будущего
+          </h4>
+          <button>
+            Купить
+          </button>
+        </div>
+        <div
+          className={styles["mobilix-block-main-products"]}
+        >
+          {
+            goods.map((good, index) => 
+              <ProductCard
+                key={index}
+                CardData={good}
+              />
+            )
+          }
+        </div>
       </main>
       <footer
         className={styles["mobilix-block-footer"]}

@@ -1,16 +1,74 @@
 @import "../styles/colors";
 
+$font-size: 20px;
+
 .mobilix-block {
   &-header {
     background-color: $bg-color;
     color: black;
+    height: 85px;
+    width: 100%;
+    display: flex; 
+    flex-flow: row nowrap;
+    justify-content: space-around;
     &-nav-menu {
+      & ul {
+        display: flex;
+        flex-flow: row nowrap;
+        height: 100%;
+        gap: 40px;
+        font-size: $font-size;
+        align-items: center;
+        justify-content: center;
+      }
+    }
 
+    & span {
+      font-size: $font-size;
+      align-self: center;
     }
   }
 
   &-main {
+    &-slider {
+      position: relative;
+      background: url('/Swiper_Slide.jpg');
+      width: 2360px;
+      height: 400px;
 
+      & h3, h4, button {
+        color: $text-color-reverse;
+        position: absolute;
+      }
+
+      & h3 {
+        font-size: 36px;
+        font-weight: 600;
+        top: 76px;
+        left: 36px;
+      }
+
+      & h4 {
+        font-size: 20px;
+        font-weight: 500;
+        top: 127px;
+        left: 36px;
+      }
+
+      & button {
+        width: 234px;
+        height: 42px;
+        font-size: 24px;
+        background-color: $primary-color;
+        top: 177px;
+        left: 36px;
+      }
+    }
+
+    &-products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   &-footer {

@@ -1,0 +1,47 @@
+@import "../../styles/colors";
+
+.product-card-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    padding: 10%;
+    border: .5px solid #ADADAD;
+
+    // &-image {
+    //     min-height: 600px;
+    // }
+
+    & button {
+        width: 140;
+        height: 42;
+        margin-top: 20px;
+        border-radius: 8px;
+        background-color: $primary-color;
+        font-family: "Montserrat";
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21.94px;
+        letter-spacing: 0%;
+        text-align: center;
+        align-self: center;
+        color: $text-color-reverse;
+    }
+
+    &-information {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 5px;
+        & span, strong {
+            font-family: "Montserrat";
+            font-weight: 500;
+            font-size: 19px;
+            line-height: 23.16px;
+            letter-spacing: 0%;
+            text-align: center;        
+        }
+    
+        & strong {
+            font-weight: 900;
+        }
+    }
+}
