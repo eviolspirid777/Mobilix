@@ -7,7 +7,7 @@ $font-size: 20px;
   &-header {
     background-color: colors.$bg-color;
     color: black;
-    height: 85px;
+    height: 65px;
     width: 100%;
     display: flex; 
     flex-flow: row nowrap;
@@ -17,7 +17,7 @@ $font-size: 20px;
         display: flex;
         flex-flow: row nowrap;
         height: 100%;
-        gap: 40px;
+        gap: 120px;
         font-size: $font-size;
         align-items: center;
         justify-content: center;
@@ -78,6 +78,39 @@ $font-size: 20px;
   }
 
   &-footer {
+    margin-top: 60px;
+    padding: 2% 0% 2% 5%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: colors.$footer-color;
 
+    &-categories {
+      flex-grow: .6;
+      width: 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px 20px;
+    }
+
+    &-information {
+      flex-grow: .1;
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    &-categories, &-information {
+      & span {
+        color: colors.$text-color-reverse;
+        font-family: fonts.$montserrat;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24.38px;
+      }
+    }
   }
 }

@@ -1,0 +1,37 @@
+@use "../../styles/colors" as colors;
+@use "../../styles/fonts" as fonts;
+
+.credit-container {
+  background-color: colors.$bg-color-credit;
+  width: 100%;
+  grid-row: 2;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 200px;
+
+  &-info {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 32px;
+
+    &-headers {
+      & h1 {
+        color: colors.$primary-color;
+        font-size: 54px;
+        font-weight: 900;
+        font-family: fonts.$montserrat-bold;
+        line-height: 65.83px;
+      }
+    }
+
+    & span {
+      font-family: fonts.$montserrat;
+      color: colors.$footer-color;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 24.38px;
+    }
+  }
+}
