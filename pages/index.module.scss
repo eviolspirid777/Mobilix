@@ -38,7 +38,9 @@ $font-size: 20px;
     &-slider {
       position: relative;
       background: url('/Swiper_Slide.jpg');
-      width: 2360px;
+      background-position-x: 20px;
+      background-position-y: -40px;
+      width: 100%;
       height: 400px;
 
       & h3, h4, button {
@@ -48,6 +50,7 @@ $font-size: 20px;
       }
 
       & h3 {
+        font-family: fonts.$montserrat-bold;
         font-size: 36px;
         font-weight: 600;
         top: 76px;

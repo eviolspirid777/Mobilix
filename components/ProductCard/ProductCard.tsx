@@ -5,11 +5,13 @@ import { FC, useState } from "react";
 import styles from "./ProductCard.module.scss"
 
 type ProductCardProps = {
-  CardData: ProductCardType
+  CardData: ProductCardType,
+  onClick: (card: ProductCardType) => void;
 }
 
 export const ProductCard: FC<ProductCardProps> = ({
-  CardData
+  CardData,
+  onClick
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -32,7 +34,9 @@ export const ProductCard: FC<ProductCardProps> = ({
       />
       { isHovered ?
         <>
-          <button>
+          <button
+            onClick={onClick.bind(null, CardData)}
+          >
             Купить
           </button>
         </> :

@@ -1,3 +1,6 @@
+@use "../../styles/colors" as colors;
+@use "../../styles/fonts" as fonts;
+
 .modal {
   position: fixed;
   top: 0;
@@ -19,16 +22,160 @@
 
   &__content {
     background: #fff;
-    padding: 20px;
+    padding: 50px;
     border-radius: 10px;
     width: 90%;
-    max-width: 500px;
+    max-width: 965px;
+    max-height: 700px;
     position: relative;
     transform: scale(0.8);
     transition: transform 0.3s ease;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
 
     .modal.active & {
       transform: scale(1);
+    }
+
+    &-information {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    &-photo {
+      position: relative;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-end;
+      justify-content: center;
+
+      &-image {
+        width: 100%;
+      }
+
+      &-undertext {
+        position: absolute;
+        top: 95%;
+        left: 0px;
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 5px;
+
+        & span {
+          font-family: fonts.$montserrat;
+          font-weight: 400;
+          font-size: 22px;
+          line-height: 30.8px;
+          letter-spacing: 0%;
+        }
+
+        & strong {
+          font-family: fonts.$montserrat;
+          color: colors.$primary-color;
+          font-weight: 400;
+          font-size: 22px;
+          line-height: 30.8px;
+          letter-spacing: 0%;
+        }
+      }
+    }
+  }
+  
+  &__header {
+    font-family: fonts.$montserrat-bold;
+    font-weight: 600;
+    font-size: 40px !important;
+    line-height: 47.73px;
+    letter-spacing: 0%;
+    color: colors.$primary-color;
+  }
+
+  &__price {
+    font-family: fonts.$montserrat-bold;
+    color: colors.$footer-color;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 53.64px;
+    letter-spacing: 0%;
+    text-align: center;
+  }
+
+  &__button {
+    &-buy {
+      width: 331;
+      height: 57;
+      border-radius: 10px;
+      background-color: colors.$primary-color;
+      color: colors.$text-color-reverse;
+      font-family: fonts.$montserrat;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24.38px;
+      letter-spacing: 0%;
+      text-align: center;
+    }
+
+    &-credit {
+      width: 334;
+      height: 39;
+      top: 1039px;
+      left: 653px;
+      border-radius: 8px;
+      border: 1px solid colors.$primary-color;
+      color: colors.$primary-color;
+      font-family: fonts.$montserrat;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24.38px;
+      letter-spacing: 0%;
+      text-align: center;
+
+    }
+  }
+
+  &__available {
+    color: #0BAB2B;
+    font-family: fonts.$montserrat;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24.38px;
+    letter-spacing: 0%;
+  }
+
+  &__list {
+    margin-top: 50px;
+    & li {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 5px;
+      align-items: center;
+      & h5 {
+        font-family: fonts.$montserrat-bold;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29.26px;
+        letter-spacing: 0%;
+        color: colors.$footer-color;
+      }
+
+      & strong {
+        font-family: fonts.$montserrat;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 30.8px;
+        letter-spacing: 0%;
+      }
+
+      & span {
+        font-family: fonts.$montserrat-bold;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 30.8px;
+        letter-spacing: 0%;        
+      }
     }
   }
 
@@ -44,10 +191,6 @@
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-  }
-
-  &__body {
-    font-size: 16px;
   }
 
   &__actions {

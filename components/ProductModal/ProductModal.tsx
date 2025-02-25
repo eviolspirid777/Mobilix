@@ -1,52 +1,128 @@
 "use client"
-import { FC, useEffect, useState } from "react"
-import { createPortal } from "react-dom"
+import { FC } from "react"
 
 import styles from "./ProductModal.module.scss";
+import { ProductCard } from "@/Types/ProductCard/ProductCard";
+import Image from "next/image";
 
 type ProductModalProps = {
   setOpen: () => void;
-  open: boolean
+  open: boolean,
+  CardData: ProductCard,
 }
 
 export const ProductModal: FC<ProductModalProps> = ({
   open,
-  setOpen
+  setOpen,
+  CardData
 }) => {
-  const [isRendered, setIsRendered] = useState(false);
-
-  useEffect(() => {
-    setIsRendered(true);
-  }, [])
-
-  if(isRendered) {
     return (
-      createPortal(
-        <div className={styles["modal"]} id="productModal">
-          <div className={styles["modal__content"]}>
-            <span className={styles["modal__close"]} id="closeModal">&times;</span>
-            <div className={styles["modal__header"]}>iPhone 16 Pro Max</div>
-            <div className={styles["modal__body"]}>
-              <p><strong>Цена:</strong> 119 490 ₽</p>
-              <p><strong>Цвет:</strong> Золотой</p>
-              <p><strong>Встроенная память:</strong> 256 ГБ</p>
-              <p><strong>Основная камера:</strong> 48 Мп</p>
-              <p><strong>Фронтальная камера:</strong> 12 Мп</p>
-              <p><strong>Аккумулятор:</strong> 4685 мАч</p>
-            </div>
-            <div className={styles["modal__actions"]}>
-              <button className={styles["buy"]}>Купить</button>
-              <button className={styles["reserve"]}>В резерв</button>
+      <div className={`${styles["modal"]} ${open && styles["active"]}`} id="productModal">
+        <div className={styles["modal__content"]}>
+          <div
+            className={styles["modal__content-photo"]}
+          >
+            <Image
+              className={styles["modal__content-photo-image"]}
+              src={CardData.image}
+              alt={CardData.name}
+              width={950}
+              height={200}
+            />
+            <div
+              className={styles["modal__content-photo-undertext"]}
+            >
+              <span>
+                Доставка сегодня 
+              </span>
+              <strong>бесплатно</strong>
             </div>
           </div>
-        </div>,
-        document.body
-      )
+          <div
+            className={styles["modal__content-information"]}
+          >
+            <div className={styles["modal__header"]}>{CardData.name}</div>
+            <div className={styles["modal__price"]}>{new Intl.NumberFormat("ru").format(CardData.price)} ₽</div>
+            <button
+              className={styles["modal__button-buy"]}
+              onClick={setOpen}
+            >
+              Купить
+            </button>
+            <button
+              className={styles["modal__button-credit"]}
+              onClick={setOpen}
+            >
+              В рассрочку
+            </button>
+            <span
+              className={styles["modal__available"]}
+            >
+              x В наличии
+            </span>
+            <ul
+              className={styles["modal__list"]}
+            >
+              <li>
+                <h5>Характеристики</h5>
+              </li>
+              <li>
+                <strong>
+                  Цвет
+                </strong>
+                &mdash;
+                <span>
+                  {CardData.color}
+                </span>
+              </li>
+              <li>
+                <strong>
+                  Встроенная память
+                </strong>
+                &mdash;
+                <span>
+                  {CardData.memory}
+                </span>
+              </li>
+              <li>
+                <strong>
+                  Количество SIM-карт
+                </strong>
+                &mdash;
+                <span>
+                  {CardData.simCard}
+                </span>
+              </li>
+              <li>
+                <strong>
+                  Основная камера
+                </strong>
+                &mdash;
+                <span>
+                  {CardData.camera?.back}
+                </span>
+              </li>
+              <li>
+                <strong>
+                  Фронтальная камера
+                </strong>
+                &mdash;
+                <span>
+                  {CardData.camera?.front}
+                </span>
+              </li>
+              <li>
+                <strong>
+                  Аккумулятор
+                </strong>
+                &mdash;
+                <span>
+                  {CardData.accumulator}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     )
-  }
-
-  return (
-    <>
-    </>
-  )
 }
