@@ -1,4 +1,4 @@
-@import "../../styles/colors";
+@use "../../styles/colors" as colors;
 
 .product-card-container {
     display: flex;
@@ -16,7 +16,7 @@
         height: 42;
         margin-top: 20px;
         border-radius: 8px;
-        background-color: $primary-color;
+        background-color: colors.$primary-color;
         font-family: "Montserrat-Regular";
         font-weight: 500;
         font-size: 18px;
@@ -24,7 +24,7 @@
         letter-spacing: 0%;
         text-align: center;
         align-self: center;
-        color: $text-color-reverse;
+        color: colors.$text-color-reverse;
     }
 
     &-information {

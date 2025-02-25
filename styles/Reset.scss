@@ -1,3 +1,5 @@
+@use "./colors";
+
 /**
  * Modern CSS Reset Tweaks
  * ================================================== */
@@ -629,10 +631,10 @@ body {
 
 @font-face {
   font-family: "Montserrat-Regular";
-  src: url("/fonts/Montserrat/Montserrat-Regular.ttf");
+  src: url("/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
   font-display: swap;
 }
 
 * {
-  font-family: "Montserrat-Regular";
+  font-family: "Montserrat-Regular", sans-serif;
 }

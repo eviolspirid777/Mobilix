@@ -1,10 +1,11 @@
-@import "../styles/colors";
+@use "../styles/colors" as colors;
+@use "../styles/fonts" as fonts;
 
 $font-size: 20px;
 
 .mobilix-block {
   &-header {
-    background-color: $bg-color;
+    background-color: colors.$bg-color;
     color: black;
     height: 85px;
     width: 100%;
@@ -20,10 +21,14 @@ $font-size: 20px;
         font-size: $font-size;
         align-items: center;
         justify-content: center;
+        & li {
+          font-family: fonts.$montserrat;
+        }
       }
     }
 
     & span {
+      font-family: fonts.$montserrat;
       font-size: $font-size;
       align-self: center;
     }
@@ -37,7 +42,8 @@ $font-size: 20px;
       height: 400px;
 
       & h3, h4, button {
-        color: $text-color-reverse;
+        color: colors.$text-color-reverse;
+        font-family: fonts.$montserrat;
         position: absolute;
       }
 
@@ -59,7 +65,7 @@ $font-size: 20px;
         width: 234px;
         height: 42px;
         font-size: 24px;
-        background-color: $primary-color;
+        background-color: colors.$primary-color;
         top: 177px;
         left: 36px;
       }
