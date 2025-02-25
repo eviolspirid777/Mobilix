@@ -602,11 +602,7 @@ body {
   overflow-y: scroll; /* Всегда показывать вертикальную полосу прокрутки */
 
   * {
-      scrollbar-width: thin;
-      &::selection {
-          background-color: #abbcae;
-          color: white;
-      }
+    scrollbar-width: thin;
   }
 }
 

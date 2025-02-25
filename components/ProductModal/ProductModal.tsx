@@ -1,5 +1,5 @@
 "use client"
-import { FC } from "react"
+import { FC, MouseEvent} from "react"
 
 import styles from "./ProductModal.module.scss";
 import { ProductCard } from "@/Types/ProductCard/ProductCard";
@@ -16,9 +16,21 @@ export const ProductModal: FC<ProductModalProps> = ({
   setOpen,
   CardData
 }) => {
+  const handleOuterClick = (event: MouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setOpen();
+  }
+
     return (
-      <div className={`${styles["modal"]} ${open && styles["active"]}`} id="productModal">
-        <div className={styles["modal__content"]}>
+      <div
+        className={`${styles["modal"]} ${open && styles["active"]}`}
+        onClick={handleOuterClick}
+      >
+        <div
+          className={styles["modal__content"]}
+          onClick={event => event.stopPropagation()}
+        >
           <div
             className={styles["modal__content-photo"]}
           >
