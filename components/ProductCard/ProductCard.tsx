@@ -25,13 +25,16 @@ export const ProductCard: FC<ProductCardProps> = ({
       onMouseEnter={setIsHovered.bind(this, true)}
       onMouseLeave={setIsHovered.bind(this, false)}
     >
-      <Image
-        className={styles["product-card-container-image"]}
-        src={CardData.image}
-        alt={CardData.name}
-        width={500}
-        height={200}
-      />
+      <div
+        className={styles["product-card-container-image-block"]}
+      >
+        <Image
+          src={CardData.images[0]}
+          alt={CardData.name}
+          width={500}
+          height={200}
+        />
+      </div>
       { isHovered ?
         <>
           <button

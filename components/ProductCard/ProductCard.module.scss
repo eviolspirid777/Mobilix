@@ -8,9 +8,12 @@
     padding: 10%;
     border: .5px solid #ADADAD;
 
-    // &-image {
-    //     min-height: 600px;
-    // }
+    &-image-block {
+        min-height: 370px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     & button {
         width: 140;

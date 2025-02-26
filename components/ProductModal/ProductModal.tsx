@@ -1,5 +1,5 @@
 "use client"
-import { FC, MouseEvent} from "react"
+import { FC, MouseEvent, useEffect, useLayoutEffect, useState} from "react"
 
 import styles from "./ProductModal.module.scss";
 import { ProductCard } from "@/Types/ProductCard/ProductCard";
@@ -16,6 +16,12 @@ export const ProductModal: FC<ProductModalProps> = ({
   setOpen,
   CardData
 }) => {
+  const [selectedImage, setSelectedImage] = useState<string>()
+
+  useLayoutEffect(() => {
+    setSelectedImage(CardData.images[0])
+  }, [CardData])
+
   const handleOuterClick = (event: MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.stopPropagation();
@@ -34,10 +40,31 @@ export const ProductModal: FC<ProductModalProps> = ({
           <div
             className={styles["modal__content-photo"]}
           >
-            <div>
+            <div
+              className={styles["modal__content-photo-block"]}
+            >
+              <div
+                className={styles["modal__content-photo-block-minies"]}
+              >
+                {
+                  CardData.images.map((image, index) => 
+                  <Image
+                    key={index}
+                    src={image}
+                    alt={CardData.name}
+                    width={65}
+                    height={80}
+                    onClick={setSelectedImage.bind(null, image)}
+                    style={selectedImage === image ? {
+                    } : {
+                      opacity: "0.5"
+                    }}
+                  />)
+                }
+              </div>
               <Image
-                className={styles["modal__content-photo-image"]}
-                src={CardData.image}
+                className={styles["modal__content-photo-block-image"]}
+                src={selectedImage ?? ""}
                 alt={CardData.name}
                 width={950}
                 height={200}

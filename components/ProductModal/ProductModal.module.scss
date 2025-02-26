@@ -49,11 +49,27 @@
       position: relative;
       display: flex;
       flex-flow: column nowrap;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
 
-      &-image {
-        width: 100%;
+      &-block {
+        display: grid;
+        grid-template-columns: 1fr 10fr;
+        gap: 10px;
+
+        &-minies {
+          display: flex;
+          flex-flow: column nowrap;
+          gap: 30px;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &-image {
+          width: 100%;
+          min-width: 300px;
+          padding: 0px 40px 40px 40px;
+        }
       }
 
       &-undertext {
