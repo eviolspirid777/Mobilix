@@ -5,6 +5,9 @@ $secondary-color: #4D85FF;
 $text-color: #000000;
 $text-color-reverse: #fff;
 $bg-color-credit: #F4F4F4;
+$input-color: #7C7C7C;
+$hand-color: #DFDFDF;
+
 
 @mixin bg-gradient {
   background: linear-gradient(180deg, #F4F4F4 0%, #4D85FF 360.62%);

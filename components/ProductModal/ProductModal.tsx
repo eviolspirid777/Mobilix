@@ -6,7 +6,7 @@ import { ProductCard } from "@/Types/ProductCard/ProductCard";
 import Image from "next/image";
 
 type ProductModalProps = {
-  setOpen: () => void;
+  setOpen: (type?: "Shop" | "LinkMe") => void;
   open: boolean,
   CardData: ProductCard,
 }
@@ -19,7 +19,7 @@ export const ProductModal: FC<ProductModalProps> = ({
   const handleOuterClick = (event: MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.stopPropagation();
-    setOpen();
+    setOpen(undefined);
   }
 
     return (
@@ -34,13 +34,15 @@ export const ProductModal: FC<ProductModalProps> = ({
           <div
             className={styles["modal__content-photo"]}
           >
-            <Image
-              className={styles["modal__content-photo-image"]}
-              src={CardData.image}
-              alt={CardData.name}
-              width={950}
-              height={200}
-            />
+            <div>
+              <Image
+                className={styles["modal__content-photo-image"]}
+                src={CardData.image}
+                alt={CardData.name}
+                width={950}
+                height={200}
+              />
+            </div>
             <div
               className={styles["modal__content-photo-undertext"]}
             >
@@ -57,20 +59,20 @@ export const ProductModal: FC<ProductModalProps> = ({
             <div className={styles["modal__price"]}>{new Intl.NumberFormat("ru").format(CardData.price)} ₽</div>
             <button
               className={styles["modal__button-buy"]}
-              onClick={setOpen}
+              onClick={setOpen.bind(null, "Shop")}
             >
               Купить
             </button>
             <button
               className={styles["modal__button-credit"]}
-              onClick={setOpen}
+              onClick={setOpen.bind(null, undefined)}
             >
               В рассрочку
             </button>
             <span
               className={styles["modal__available"]}
             >
-              x В наличии
+              ✓ В наличии
             </span>
             <ul
               className={styles["modal__list"]}

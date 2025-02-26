@@ -8,14 +8,33 @@ import { Gurantee } from "@/components/Gurantee/Gurantee";
 import { useState } from "react";
 import { ProductModal } from "@/components/ProductModal/ProductModal";
 import { ProductCard as ProductCardType} from "@/Types/ProductCard/ProductCard";
+import { LinkWithMe } from "@/components/LinkWIthMe/LinkWithMe";
+
+type OpenModalType = {
+  ProductCard: boolean,
+  LinkWithMe: boolean,
+}
 
 export default function Main() {
   const [selectedItem, setSelectedItem] = useState<ProductCardType>(goods[0])
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<OpenModalType>({
+    LinkWithMe: false,
+    ProductCard: false
+  });
+  const [type, setType] = useState<"Shop" | "LinkMe">();
 
   const handleOpenProductCard = (item: ProductCardType) => {
     setSelectedItem(item);
-    setOpen(true);
+    setOpen(prev => ({...prev, ProductCard: true}));
+  }
+
+  const handleOpenLinkWithMe = (type?: "Shop" | "LinkMe") => {
+    if(type) {
+      setType(type);
+      setOpen(prev => ({...prev, LinkWithMe: true}));
+    }
+
+    setOpen(prev => ({...prev, ProductCard: false}));
   }
 
   return (
@@ -123,9 +142,14 @@ export default function Main() {
         </footer>
       </div>
       <ProductModal
-        open={open}
-        setOpen={setOpen.bind(null,false)}
+        open={open.ProductCard}
+        setOpen={handleOpenLinkWithMe}
         CardData={selectedItem}
+      />
+      <LinkWithMe
+        open={open.LinkWithMe}
+        setOpen={setOpen.bind(null, prev => ({...prev, LinkWithMe: false }))}
+        type={type}
       />
     </>
   );

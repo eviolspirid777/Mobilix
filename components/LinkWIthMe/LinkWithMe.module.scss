@@ -1,0 +1,107 @@
+@use "../../styles/colors" as colors;
+@use "../../styles/fonts" as fonts;
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__content {
+    width: 965;
+    height: 700;
+    border-radius: 40px;
+    background: #fff;
+    padding: 50px;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .modal.active & {
+      transform: scale(1);
+    }
+
+    &-information {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      & button {
+        width: 331;
+        height: 57;
+        border-radius: 10px;
+        background-color: colors.$primary-color;
+        color: colors.$text-color-reverse;
+        font-family: fonts.$montserrat;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24.38px;
+        letter-spacing: 0%;
+        text-align: center;
+      }
+
+      & span {
+        font-family: fonts.$montserrat;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 26.82px;
+        letter-spacing: 0%;
+      }
+
+      & h3 {
+        font-family: fonts.$montserrat-bold;
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 48.76px;
+        letter-spacing: 0%;
+      }
+
+      & input {
+        font-family: fonts.$montserrat;
+        color: colors.$input-color;
+        outline: none;
+        border: none;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24.38px;
+        letter-spacing: 0%;
+        border-bottom: 3px solid colors.$primary-color;
+        padding: 10px 0px 5px 10px;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    &-photo {
+      position: relative;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-end;
+      justify-content: center;
+      background-color: colors.$hand-color;
+      overflow: hidden;
+
+      &-image {
+        transform: rotate(-90deg) scale(2);
+      }
+    }
+  }
+}
