@@ -55,7 +55,9 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
               type="text"
               placeholder="Пожелания"
             />
-            <button>
+            <button
+              onClick={setOpen}
+            >
               Свяжитесь со мной
             </button>
           </div>
@@ -69,6 +71,27 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
               width={900}
               height={500}
             />
+            <h2>
+              Мобиликс
+            </h2>
+            <div
+              className={styles["modal__content-photo-text-block"]}
+              data-text="1"
+            >
+              Бесплатная доставка
+            </div>
+            <div
+              className={styles["modal__content-photo-text-block"]}
+              data-text="2"
+            >
+              Оплата после получения
+            </div>
+            <div
+              className={styles["modal__content-photo-text-block"]}
+              data-text="3"
+            >
+              Гарантийное обслуживание
+            </div>
           </div>
         </div>
       </div>

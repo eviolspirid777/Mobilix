@@ -12,3 +12,7 @@ $hand-color: #DFDFDF;
 @mixin bg-gradient {
   background: linear-gradient(180deg, #F4F4F4 0%, #4D85FF 360.62%);
 }
+
+@mixin bg-phone-gradient {
+  background: linear-gradient(93.17deg, #FFFFFF 62.1%, #999999 204.45%);
+}

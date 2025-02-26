@@ -661,6 +661,12 @@ body {
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Russo-one-regular";
+  src: url("/fonts/Russo/RussoOne-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
 * {
   font-family: "Montserrat-Regular", sans-serif;
 }

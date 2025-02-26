@@ -25,37 +25,24 @@
     height: 700;
     border-radius: 40px;
     background: #fff;
-    padding: 50px;
     position: relative;
     transform: scale(0.8);
     transition: transform 0.3s ease;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    overflow: hidden;
 
     .modal.active & {
       transform: scale(1);
     }
 
     &-information {
+      padding: 50px;
       display: flex;
       flex-flow: column nowrap;
-      gap: 10px;
+      gap: 40px;
       align-items: flex-start;
       justify-content: flex-start;
-
-      & button {
-        width: 331;
-        height: 57;
-        border-radius: 10px;
-        background-color: colors.$primary-color;
-        color: colors.$text-color-reverse;
-        font-family: fonts.$montserrat;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 24.38px;
-        letter-spacing: 0%;
-        text-align: center;
-      }
 
       & span {
         font-family: fonts.$montserrat;
@@ -84,9 +71,26 @@
         letter-spacing: 0%;
         border-bottom: 3px solid colors.$primary-color;
         padding: 10px 0px 5px 10px;
+        width: 100%;
         &:focus {
           outline: none;
         }
+      }
+
+      & button {
+        width: 331;
+        height: 57;
+        border-radius: 10px;
+        margin-top: 20px;
+        align-self: center;
+        background-color: colors.$primary-color;
+        color: colors.$text-color-reverse;
+        font-family: fonts.$montserrat;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24.38px;
+        letter-spacing: 0%;
+        text-align: center;
       }
     }
 
@@ -97,10 +101,65 @@
       align-items: flex-end;
       justify-content: center;
       background-color: colors.$hand-color;
-      overflow: hidden;
+
+      & h2 {
+        position: absolute;
+        top: 100;
+        left: 160;
+        z-index: 2;
+        font-family: fonts.$russo;
+        font-weight: 400;
+        font-size: 35px;
+        line-height: 42.18px;
+        letter-spacing: 0%;
+        text-align: center;
+        color: colors.$text-color-reverse;
+      }
 
       &-image {
-        transform: rotate(-90deg) scale(2);
+        z-index: 1;
+        transform:  rotate(-90deg)
+                    scale(1.8)
+                    translate(0px, 40px)
+                    scaleY(-1);;
+      }
+
+      &-text-block {
+        @include colors.bg-phone-gradient;
+        position: absolute;
+        z-index: 2;
+        font-family: fonts.$montserrat;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 22.67px;
+        letter-spacing: 0%;
+        text-align: start;
+        padding: 20px 0px 0px 20px;
+        height: 83;
+
+        &[data-text="1"] {
+          top: 175;
+          left: 128;
+          width: 169;
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+        }
+
+        &[data-text="2"] {
+          top: 315;
+          left: 204;
+          width: 177;
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+        }
+
+        &[data-text="3"] {
+          top: 455;
+          left: 128;
+          width: 205;
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+        }
       }
     }
   }
