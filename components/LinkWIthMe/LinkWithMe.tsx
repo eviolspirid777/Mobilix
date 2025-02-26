@@ -43,9 +43,18 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
                 "Мы уточним удобное время доставки, просто оставьте номер телефона"
               }
             </span>
-            <input type="text" placeholder="Номер"/>
-            <input type="text" placeholder="Имя"/>
-            <input type="text" placeholder="Пожелания"/>
+            <input
+              type="text"
+              placeholder="Номер"
+            />
+            <input
+              type="text"
+              placeholder="Имя"
+            />
+            <input
+              type="text"
+              placeholder="Пожелания"
+            />
             <button>
               Свяжитесь со мной
             </button>
