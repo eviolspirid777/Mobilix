@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import styles from "./index.module.scss";
 import { goods } from "@/goods/goods";
@@ -9,6 +10,7 @@ import { useState } from "react";
 import { ProductModal } from "@/components/ProductModal/ProductModal";
 import { ProductCard as ProductCardType} from "@/Types/ProductCard/ProductCard";
 import { LinkWithMe } from "@/components/LinkWIthMe/LinkWithMe";
+import { useMedia } from "react-use";
 
 type OpenModalType = {
   ProductCard: boolean,
@@ -22,6 +24,8 @@ export default function Main() {
     ProductCard: false
   });
   const [type, setType] = useState<"Shop" | "LinkMe">();
+  const isMobile = useMedia('(max-width: 768px)');
+  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 
   const handleOpenProductCard = (item: ProductCardType) => {
     setSelectedItem(item);
@@ -37,36 +41,70 @@ export default function Main() {
     setOpen(prev => ({...prev, ProductCard: false}));
   }
 
+  const handleBurgerMenuToggle = () => {
+    setIsBurgerMenuOpen(!isBurgerMenuOpen);
+  };
+
   return (
     <>
       <div
         className={styles["mobilix-block"]}
       >
-        <header
-          className={styles["mobilix-block-header"]}
-        >
-          <Image
-            src="/Logo.png"
-            alt="Mobilix"
-            width={184}
-            height={0}
-            style={{
-              maxHeight:"30px",
-              alignSelf: "center"
-            }}
-            layout="intrinsic"
-          />
-          <nav
-            className={styles["mobilix-block-header-nav-menu"]}
+        {
+          isMobile ? 
+          <header className={styles["mobilix-block-header"]}>
+            <button onClick={handleBurgerMenuToggle}>
+              {isBurgerMenuOpen ? "𐄂" : "☰"}
+            </button>
+            <Image
+              className={styles["mobilix-block-header-photo"]}
+              src="/Logo.png"
+              alt="Mobilix"
+              width={128}
+              height={0}
+              style={{
+                maxHeight: "30px",
+                alignSelf: "center",
+              }}
+              layout="intrinsic"
+            />
+            {isBurgerMenuOpen && (
+              <nav className={styles["mobilix-block-header-nav-menu-mobile"]}>
+                <ul>
+                  <li>Каталог</li>
+                  <li>Акции</li>
+                  <li>Рассрочка</li>
+                  <li><span>+7(988) 559 39 56</span></li>
+                </ul>
+              </nav>
+            )}
+          </header> :
+          <header
+            className={styles["mobilix-block-header"]}
           >
-            <ul>
-              <li>Каталог</li>
-              <li>Акции</li>
-              <li>Рассрочка</li>
-            </ul>
-          </nav>
-          <span>+7(988) 559 39 56</span>
-        </header>
+            <Image
+              src="/Logo.png"
+              alt="Mobilix"
+              width={184}
+              height={0}
+              style={{
+                maxHeight:"30px",
+                alignSelf: "center"
+              }}
+              layout="intrinsic"
+            />
+            <nav
+              className={styles["mobilix-block-header-nav-menu"]}
+            >
+              <ul>
+                <li>Каталог</li>
+                <li>Акции</li>
+                <li>Рассрочка</li>
+              </ul>
+            </nav>
+            <span>+7(988) 559 39 56</span>
+          </header>
+        }
         <main
           className={styles["mobilix-block-main"]}
         >
