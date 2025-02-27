@@ -122,7 +122,16 @@ export default function Main() {
           <div
             className={styles["mobilix-block-main-products"]}
           >
-            {
+            { isMobile ? 
+              goods.map((good, index) => {
+                return index < 6 ? 
+                <ProductCard
+                  key={index}
+                  CardData={good}
+                  onClick={handleOpenProductCard}
+                /> : 
+                null
+              }) :
               goods.map((good, index) => 
                 <ProductCard
                   key={index}
@@ -132,6 +141,16 @@ export default function Main() {
               )
             }
           </div>
+          {
+            isMobile && 
+            <div
+              className={styles["mobilix-block-main-products-mobile__more-button-block"]}
+            >
+              <button>
+                Еще
+              </button>
+            </div>
+          }
           <Credit />
           <div
             style={{

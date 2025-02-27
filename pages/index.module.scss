@@ -120,46 +120,73 @@ $font-size: 20px;
 }
 
 @media (max-width: 768px) {
-  .mobilix-block-header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-  
-    & button {
-      transform: scale(1.5);
-    }
-  
-    &-nav-menu-mobile {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        border-top: 1px solid #ccc;
-        z-index: 10;
-  
-        & ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            & li {
-                padding: 10px;
-                border-bottom: 1px solid #ccc;
-                text-align: center;
-            }
-        }
-    }
-  
-    &-photo {
-      position: absolute;
-      left: 38%;
-    }
-  }
-
   .mobilix-block {
+    &-header {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    
+      & button {
+        transform: scale(1.5);
+      }
+    
+      &-nav-menu-mobile {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: white;
+          border-top: 1px solid #ccc;
+          z-index: 10;
+    
+          & ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              & li {
+                  padding: 10px;
+                  border-bottom: 1px solid #ccc;
+                  text-align: center;
+              }
+          }
+      }
+    
+      &-photo {
+        position: absolute;
+        left: 38%;
+      }
+    }
+
     &-main {
+      &-products {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+
+        &-mobile__more-button-block {
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: colors.$input-color;
+
+          & button {
+            width: 130.06568908691406;
+            height: 31.72991943359375;
+            border-radius: 8px;
+            border: 1px solid colors.$border-color;
+            font-family: fonts.$montserrat;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 18.29px;
+            letter-spacing: 0%;
+            text-align: center;
+          }
+        }
+      }
+
       &-slider {
         height: 229px;
         background-position-y: 0px;
@@ -174,26 +201,26 @@ $font-size: 20px;
 
       & h3 {
         font-family: fonts.$sf-bold;
-        font-size: 28px;
+        font-size: 23px;
         top: 250px;
-        left: 50px;
+        left: 6%;
       }
 
       & h4 {
         font-size: 15px;
         color: colors.$input-color;
         top: 290px;
-        left: 65px;
+        left: 8%;
       }
 
-      & button {
+      & > button {
         width: 175px;
         height: 34px;
         font-size: 15px;
         color: colors.$text-color-reverse;
         border-radius: 8px;
         top: 260px;
-        left: 350px;
+        left: 57%;
       }
     }
   }

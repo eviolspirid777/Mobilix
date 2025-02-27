@@ -1,6 +1,6 @@
 import { type ProductCard as ProductCardType } from "@/Types/ProductCard/ProductCard";
 import Image from "next/image";
-import { FC, useState } from "react";
+import { FC } from "react";
 
 import styles from "./ProductCard.module.scss"
 
@@ -13,8 +13,6 @@ export const ProductCard: FC<ProductCardProps> = ({
   CardData,
   onClick
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   const formatPrice = () => {
     return new Intl.NumberFormat("ru").format(CardData.price)
   }
@@ -22,8 +20,6 @@ export const ProductCard: FC<ProductCardProps> = ({
   return (
     <div
       className={styles["product-card-container"]}
-      onMouseEnter={setIsHovered.bind(this, true)}
-      onMouseLeave={setIsHovered.bind(this, false)}
     >
       <div
         className={styles["product-card-container-image-block"]}
@@ -35,28 +31,24 @@ export const ProductCard: FC<ProductCardProps> = ({
           height={200}
         />
       </div>
-      { isHovered ?
-        <>
-          <button
-            onClick={onClick.bind(null, CardData)}
-          >
-            Купить
-          </button>
-        </> :
-        <div
-          className={styles["product-card-container-information"]}
-        >
-          <strong>
-            {CardData.name}
-          </strong>
-          <span>
-            {CardData.memory}
-          </span>
-          <span>
-            {formatPrice()} ₽
-          </span>
-        </div>
-      }
+      <div
+        className={styles["product-card-container-information"]}
+      >
+        <strong>
+          {CardData.name}
+        </strong>
+        <span>
+          {CardData.memory}
+        </span>
+        <span>
+          {formatPrice()} ₽
+        </span>
+      </div>
+      <button
+        onClick={onClick.bind(null, CardData)}
+      >
+        Купить
+      </button>
     </div>
   )
 }

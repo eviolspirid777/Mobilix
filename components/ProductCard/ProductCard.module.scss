@@ -8,6 +8,16 @@
     padding: 10%;
     border: .5px solid #ADADAD;
 
+    &:hover {
+        & button {
+            display: initial;
+        }
+
+        & .product-card-container-information {
+            display: none;
+        }
+    }
+
     &-image-block {
         min-height: 370px;
         display: flex;
@@ -16,6 +26,7 @@
     }
 
     & button {
+        display: none;
         width: 140;
         height: 42;
         margin-top: 20px;
@@ -50,6 +61,42 @@
         & strong {
             font-weight: 900;
             font-family: fonts.$sf-heavy;
+        }
+    }
+}
+
+@media (hover: hover) {
+    .product-card-container:hover {
+        & button {
+            display: initial;
+        }
+        & .product-card-container-information {
+            display: initial;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .product-card-container {
+        &:hover {
+            
+        }
+        & button {
+            display: initial;
+            width: 162.14634704589844;
+            height: 39.55609130859375;
+            border-radius: 8px;
+            margin-top: 0px;
+        }
+
+        &-image-block {
+            min-height: 340px;
+        }
+
+        &-information {
+            & span, strong {
+                font-size: 18px;    
+            }
         }
     }
 }
