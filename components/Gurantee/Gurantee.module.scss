@@ -4,7 +4,9 @@
 
 .gurantee-block {
   @include colors.bg-gradient;
-  flex-grow: .5;
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 100%;
   padding-top: 3%;
   overflow: hidden;
   width: 544px;
@@ -30,5 +32,33 @@
     font-size: 20px;
     line-height: 24.38px;
     text-align: center;
+  }
+
+  &-image {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gurantee-block {
+    width: 267px;
+    height: 216px;
+    padding-top: 0%;
+
+    & h3 {
+      position: absolute;
+      top: 10%;
+      left: 29%;
+      font-size: 16px;
+      line-height: 19.5px;
+    }
+
+    & span {
+      position: absolute;
+      top: 13%;
+      left: 42%;
+      font-size: 13px;
+      line-height: 24.38px;
+    }
   }
 }

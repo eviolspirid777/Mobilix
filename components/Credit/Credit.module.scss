@@ -35,3 +35,52 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .credit-container {
+    position: relative;
+    background-color: colors.$bg-color-credit;
+    width: 100%;
+    grid-row: 2;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 200px;
+    height: 238px;
+    margin-top: 0px;
+
+    &-image {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      background-size: 0%;
+    }
+  
+    &-info {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 32px;
+      width: 100%;
+      padding-left: 5%;
+
+      &-headers {
+        & h1 {
+          color: colors.$primary-color;
+          font-size: 30px;
+          font-weight: 900;
+          font-family: fonts.$montserrat-extra-bold;
+          line-height: 36.57px;
+        }
+      }
+  
+      & span {
+        font-family: fonts.$montserrat;
+        color: colors.$footer-color;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 24.38px;
+      }
+    }
+  }
+}

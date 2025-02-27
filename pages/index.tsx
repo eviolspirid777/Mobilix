@@ -74,6 +74,7 @@ export default function Main() {
                   <li>Каталог</li>
                   <li>Акции</li>
                   <li>Рассрочка</li>
+                  <li>Trade-IN</li>
                   <li><span>+7(988) 559 39 56</span></li>
                 </ul>
               </nav>
@@ -151,17 +152,23 @@ export default function Main() {
               </button>
             </div>
           }
-          <Credit />
+          <Credit
+            isMobile={isMobile}
+          />
           <div
             style={{
-              marginTop: "20px",
               display: "flex",
+              marginTop: "20px",
               flexFlow: "row nowrap",
               gap: "20px"
             }}
           >
-            <Gurantee />
-            <Delivery />
+            <Gurantee
+              isMobile={isMobile}
+            />
+            <Delivery
+              isMobile={isMobile}
+            />
           </div>
         </main>
         <footer

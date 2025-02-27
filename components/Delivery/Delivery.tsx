@@ -1,8 +1,14 @@
+import { FC } from "react";
 import styles from "./Delivery.module.scss";
 import Image from "next/image";
 
+type DeliveryProps = {
+  isMobile: boolean
+}
 
-export const Delivery = () => {
+export const Delivery: FC<DeliveryProps> = ({
+  isMobile
+}) => {
   return (
     <div
       className={styles["delivery-block"]}
@@ -13,7 +19,7 @@ export const Delivery = () => {
         className={styles["delivery-block-image"]}
         src="/Tiles/Airpods.png"
         alt="Iphones"
-        width={275}
+        width={isMobile ? 182.56 : 275}
         height={196}
       />
     </div>

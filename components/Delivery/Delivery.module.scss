@@ -35,3 +35,35 @@
     margin-top: 47px;
   }
 }
+
+@media (max-width: 768px) {
+  .delivery-block {
+    @include colors.bg-gradient;
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 100%;
+    width: 267px;
+    height: 216px;
+    padding-top: 0%;
+    
+    & h3 {
+      position: absolute;
+      top: 10%;
+      left: 24%;
+      font-size: 16px;
+      line-height: 19.5px;
+    }
+  
+    & span {
+      position: absolute;
+      top: 15%;
+      left: 42%;
+      font-size: 13px;
+      line-height: 15.85px;
+    }
+  
+    &-image {
+      margin-top: 77px;
+    }
+  }
+}

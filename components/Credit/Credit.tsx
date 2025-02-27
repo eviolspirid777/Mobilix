@@ -1,7 +1,14 @@
 import Image from "next/image";
 import styles from "./Credit.module.scss";
+import { FC } from "react";
 
-export const Credit = () => {
+type CreditProps = {
+  isMobile: boolean
+}
+
+export const Credit: FC<CreditProps> = ({
+  isMobile
+}) => {
   return (
     <div
       className={styles["credit-container"]}
@@ -18,10 +25,11 @@ export const Credit = () => {
         <span>Подробнее по телефону</span>
       </div>
       <Image
+        className={styles["credit-container-image"]}
         src="/Credit/Watch.png"
         alt="Apple watch ultra"
-        width={1000}
-        height={40}
+        width={isMobile ? 317 : 1000}
+        height={140}
       />
     </div>
   )
