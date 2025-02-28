@@ -625,6 +625,12 @@ body {
   background: #c3c3c3;
 }
 
+.ant-carousel .slick-slide img {
+  max-width: 100%; /* Ограничиваем ширину изображения */
+  height: auto; /* Сохраняем пропорции */
+  margin: 0 auto; /* Центрируем изображение */
+}
+
 @font-face {
   font-family: "Montserrat-Regular";
   src: url("/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
@@ -634,6 +640,12 @@ body {
 @font-face {
   font-family: "Montserrat-Bold";
   src: url("/fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat-Semi-Bold";
+  src: url("/fonts/Montserrat/Montserrat-SemiBold.ttf") format("truetype");
   font-display: swap;
 }
 

@@ -73,8 +73,6 @@
         }
 
         &-image {
-          width: 100%;
-          min-width: 300px;
           padding: 0px 40px 40px 40px;
         }
       }
@@ -90,7 +88,7 @@
         & span {
           font-family: fonts.$montserrat;
           font-weight: 400;
-          font-size: 22px;
+          font-size: 1.375rem;
           line-height: 30.8px;
           letter-spacing: 0%;
         }
@@ -99,7 +97,7 @@
           font-family: fonts.$montserrat;
           color: colors.$primary-color;
           font-weight: 400;
-          font-size: 22px;
+          font-size: 1.375rem;
           line-height: 30.8px;
           letter-spacing: 0%;
         }
@@ -110,7 +108,7 @@
   &__header {
     font-family: fonts.$montserrat-bold;
     font-weight: 600;
-    font-size: 40px;
+    font-size: 2.5rem;
     line-height: 47.73px;
     letter-spacing: 0%;
     color: colors.$primary-color;
@@ -120,7 +118,7 @@
     font-family: fonts.$montserrat-bold;
     color: colors.$footer-color;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 2.5rem;
     line-height: 53.64px;
     letter-spacing: 0%;
     text-align: center;
@@ -135,7 +133,7 @@
       color: colors.$text-color-reverse;
       font-family: fonts.$montserrat;
       font-weight: 500;
-      font-size: 20px;
+      font-size: 1.25rem;
       line-height: 24.38px;
       letter-spacing: 0%;
       text-align: center;
@@ -151,7 +149,7 @@
       color: colors.$primary-color;
       font-family: fonts.$montserrat;
       font-weight: 500;
-      font-size: 20px;
+      font-size: 1.25rem;
       line-height: 24.38px;
       letter-spacing: 0%;
       text-align: center;
@@ -163,7 +161,7 @@
     color: #0BAB2B;
     font-family: fonts.$montserrat;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 24.38px;
     letter-spacing: 0%;
   }
@@ -178,7 +176,7 @@
       & h5 {
         font-family: fonts.$montserrat-bold;
         font-weight: 700;
-        font-size: 24px;
+        font-size: 1.5rem;
         line-height: 29.26px;
         letter-spacing: 0%;
         color: colors.$footer-color;
@@ -187,7 +185,7 @@
       & strong {
         font-family: fonts.$montserrat;
         font-weight: 400;
-        font-size: 22px;
+        font-size: 1.375rem;
         line-height: 30.8px;
         letter-spacing: 0%;
       }
@@ -195,7 +193,7 @@
       & span {
         font-family: fonts.$montserrat-bold;
         font-weight: 700;
-        font-size: 22px;
+        font-size: 1.375rem;
         line-height: 30.8px;
         letter-spacing: 0%;        
       }
@@ -205,17 +203,18 @@
 
 @media (max-width: 768px) {
   .modal {
-
-    &.active {
-
+    .ant-carousel {
+      .slick-slide img {
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+      }
     }
-  
+
     &__content {
       grid-template-rows: 2fr 1fr;
       grid-template-columns: none;
-      .modal.active & {
-
-      }
+      max-width: 965px;
   
       &-information {
         &__btn-block {
@@ -227,7 +226,6 @@
       }
   
       &-photo {
-  
         &-block {
           grid-template-columns: none;
           grid-template-rows: 1fr 1fr;
@@ -239,61 +237,89 @@
           &-image {
             order: 0;
           }
-        }
-  
-        &-undertext {
-  
-          & span {
 
-          }
-  
-          & strong {
-
+          .ant-carousel {
+            width: 100%;
+            max-width: 500px;
           }
         }
       }
-    }
-    
-    &__header {
-      font-family: fonts.$sf-bold;
-      size: 30px;
-      line-height: 35.8px;
     }
   
     &__price {
       size: 30px;
     }
-  
-    &__button {
-      &-buy {
+  }
 
-      }
-  
-      &-credit {
-  
+  div.modal__content {
+    padding: 20px;
+    border-radius: 30px;
+    height: 90vh !important;
+    max-height: none;
+  }
+
+  div.modal__header {
+    font-size: 1.875rem;
+    font-family: fonts.$sf-bold;
+    line-height: 35.8px;
+  }
+
+  div.modal__price {
+    font-size: 1.875rem;
+    font-family: fonts.$montserrat-bold;
+    line-height: 35.8px;
+  }
+
+  div.modal__content-photo {
+    &-undertext {
+      top: 155%;
+      & span, strong {
+        font-size: 1.125rem;
       }
     }
-  
-    &__available {
 
+    &-block {
+      width: 100%;
     }
-  
-    &__list {
+  }
 
-      & li {
-
-        & h5 {
-
-        }
-  
-        & strong {
-
-        }
-  
-        & span {
-        
-        }
+  .modal__content-information__btn-block {
+    margin-top: 0px;
+    & button {
+      &:first-child {
+        width: 166;
+        height: 50.811431884765625;
+        border-radius: 10px;        
       }
+
+      &:last-child {
+        width: 166;
+        height: 51;
+        border-radius: 8px;
+        border-width: 1px;        
+      }
+    }
+  }
+
+  ul.modal__list {
+    li:has( > h5) {
+      margin-bottom: 10px;
+    }
+    li {
+      h5 {
+        font-size: 1.375rem;
+      }
+
+      strong, span {
+        font-size: 1.125rem;
+      }
+    }
+  }
+
+  .modal__content-photo-block {
+    display: inline;
+    &-minies {
+      display: none;
     }
   }
 }

@@ -19,7 +19,7 @@
     &-headers {
       & h1 {
         color: colors.$primary-color;
-        font-size: 54px;
+        font-size: 3.375rem;
         font-weight: 900;
         font-family: fonts.$montserrat-extra-bold;
         line-height: 65.83px;
@@ -29,7 +29,7 @@
     & span {
       font-family: fonts.$montserrat;
       color: colors.$footer-color;
-      font-size: 20px;
+      font-size: 1.25rem;
       font-weight: 500;
       line-height: 24.38px;
     }
@@ -68,7 +68,7 @@
       &-headers {
         & h1 {
           color: colors.$primary-color;
-          font-size: 30px;
+          font-size: 1.875rem;
           font-weight: 900;
           font-family: fonts.$montserrat-extra-bold;
           line-height: 36.57px;
@@ -78,7 +78,7 @@
       & span {
         font-family: fonts.$montserrat;
         color: colors.$footer-color;
-        font-size: 20px;
+        font-size: 1rem;
         font-weight: 500;
         line-height: 24.38px;
       }

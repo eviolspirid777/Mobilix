@@ -17,7 +17,7 @@
   gap: 0px;
 
   & h3 {
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 39.01px;
     font-family: fonts.$montserrat-bold;
     font-weight: 700;
@@ -29,7 +29,7 @@
     padding-top: 20px;
     font-family: fonts.$montserrat;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 24.38px;
     text-align: center;
   }
@@ -48,17 +48,22 @@
     & h3 {
       position: absolute;
       top: 10%;
-      left: 29%;
-      font-size: 16px;
+      left: 5%;
+      font-size: .85rem;
       line-height: 19.5px;
+      width: 100%;
     }
 
     & span {
       position: absolute;
       top: 13%;
-      left: 42%;
-      font-size: 13px;
+      left: 35%;
+      font-size: 0.8125rem;
       line-height: 24.38px;
+    }
+
+    &-image {
+      margin-top: 75px;
     }
   }
 }

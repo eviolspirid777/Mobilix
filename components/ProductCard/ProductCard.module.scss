@@ -34,7 +34,7 @@
         background-color: colors.$primary-color;
         font-family: "Montserrat-Regular";
         font-weight: 500;
-        font-size: 18px;
+        font-size: 1.125rem;
         line-height: 21.94px;
         letter-spacing: 0%;
         text-align: center;
@@ -48,7 +48,7 @@
         gap: 5px;
         & span, strong {
             font-weight: 500;
-            font-size: 19px;
+            font-size: 1.1875rem;
             line-height: 23.16px;
             letter-spacing: 0%;
             text-align: center;        
@@ -97,7 +97,7 @@
 
         &-information {
             & span, strong {
-                font-size: 18px;    
+                font-size: 1.125rem;    
             }
         }
     }

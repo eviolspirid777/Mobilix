@@ -1,7 +1,7 @@
 @use "../styles/colors" as colors;
 @use "../styles/fonts" as fonts;
 
-$font-size: 20px;
+$font-size: 1.25rem;
 
 .mobilix-block {
   &-header {
@@ -22,6 +22,7 @@ $font-size: 20px;
         align-items: center;
         justify-content: center;
         & li {
+          cursor: pointer;
           font-family: fonts.$montserrat;
         }
       }
@@ -52,14 +53,14 @@ $font-size: 20px;
 
       & h3 {
         font-family: fonts.$montserrat-bold;
-        font-size: 36px;
+        font-size: 2.25rem;
         font-weight: 600;
         top: 76px;
         left: 36px;
       }
 
       & h4 {
-        font-size: 20px;
+        font-size: $font-size;
         font-weight: 500;
         top: 127px;
         left: 36px;
@@ -68,7 +69,7 @@ $font-size: 20px;
       & button {
         width: 234px;
         height: 42px;
-        font-size: 24px;
+        font-size: 1.5rem;
         background-color: colors.$primary-color;
         top: 177px;
         left: 36px;
@@ -109,10 +110,12 @@ $font-size: 20px;
 
     &-categories, &-information {
       & span {
+        cursor: pointer;
         color: colors.$text-color-reverse;
         font-family: fonts.$montserrat;
+        width: fit-content;
         font-weight: 500;
-        font-size: 20px;
+        font-size: $font-size;
         line-height: 24.38px;
       }
     }
@@ -163,10 +166,14 @@ $font-size: 20px;
 
             & li {
               font-weight: 800;
-              font-size: 34px;
+              font-size: 2.125rem;
               text-align: center;
 
               &:hover:not(:last-child) {
+                color: colors.$primary-color;
+              }
+
+              &:nth-child(4) {
                 color: colors.$primary-color;
               }
             }
@@ -199,7 +206,7 @@ $font-size: 20px;
             border: 1px solid colors.$border-color;
             font-family: fonts.$montserrat;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 0.9375rem;
             line-height: 18.29px;
             letter-spacing: 0%;
             text-align: center;
@@ -210,19 +217,19 @@ $font-size: 20px;
       &-slider {
         position: relative;
         height: 229px;
-        background-position-y: -30px;
-        background-position-x: -190px;
-        background-size: 120%;
+        background-position-y: -0px;
+        background-position-x: -170px;
+        background-size: 140%;
         margin-bottom: 100px;
 
         & button {
-          width: 185;
-          height: 44;
+          width: 155;
+          height: 40;
           top: 112%;
-          left: 63%;
+          left: 59%;
           border-radius: 8px;
           font-weight: 500;
-          font-size: 17px;
+          font-size: 1.0625rem;
           line-height: 18.29px;
           letter-spacing: 0%;
           text-align: center;
@@ -236,22 +243,22 @@ $font-size: 20px;
 
       & h3 {
         font-family: fonts.$sf-bold;
-        font-size: 28px;
+        font-size: 1.45rem;
         top: 250px;
-        left: 10%;
+        left: 5%;
       }
 
       & h4 {
-        font-size: 15px;
+        font-size: 0.7375rem;
         color: colors.$input-color;
-        top: 290px;
-        left: 13%;
+        top: 285px;
+        left: 11%;
       }
 
       & > button {
         width: 175px;
         height: 34px;
-        font-size: 15px;
+        font-size: 0.9375rem;
         color: colors.$text-color-reverse;
         border-radius: 8px;
         top: 260px;
@@ -267,7 +274,7 @@ $font-size: 20px;
         gap: 20px;
 
         & span {
-          font-size: 16px;
+          font-size: 1rem;
           line-height: 19.5px;
         }
       }
@@ -275,7 +282,7 @@ $font-size: 20px;
       &-information {
         gap: 20px;
         & span {
-          font-size: 16px;
+          font-size: 1rem;
           line-height: 19.5px;
         }
       }

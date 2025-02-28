@@ -7,13 +7,15 @@ import Image from "next/image";
 type LinkWithMeProps = {
   setOpen: () => void;
   open: boolean,
-  type?: "Shop" | "LinkMe"
+  type?: "Shop" | "LinkMe",
+  isMobile: boolean
 }
 
 export const LinkWithMe: FC<LinkWithMeProps> = ({
   open,
   setOpen,
-  type = "LinkMe"
+  type = "LinkMe",
+  isMobile
 }) => {
   const handleOuterClick = (event: MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -33,7 +35,13 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
           <div
             className={styles["modal__content-information"]}
           >
-            <h3>
+            <h3
+              style={(isMobile && type === "LinkMe") ? {
+                fontSize: "2.2rem"
+              } : {
+
+              }}
+            >
               {type === "LinkMe" ? "Расскажем в WhatsApp о лучших условиях" : "Товар добавлен в корзину!"}
             </h3>
             <span>
@@ -57,42 +65,63 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
             />
             <button
               onClick={setOpen}
+              style={(isMobile && type === "LinkMe") ? {
+                marginTop: "0px"
+              } : {
+
+              }}
             >
               Свяжитесь со мной
             </button>
+            {
+              isMobile && 
+              <span
+                className={styles["modal__content-information__tile"]}
+                style={(isMobile && type === "LinkMe") ? {
+                  marginTop: "0px"
+                } : {
+  
+                }}
+              >
+                Оплата после получения
+              </span>
+            }
           </div>
-          <div
-            className={styles["modal__content-photo"]}
-          >
-            <Image
-              className={styles["modal__content-photo-image"]}
-              src="/Hand/hand.png"
-              alt="Рука"
-              width={900}
-              height={500}
-            />
-            <h2>
-              Мобиликс
-            </h2>
+          {
+            !isMobile &&
             <div
-              className={styles["modal__content-photo-text-block"]}
-              data-text="1"
+              className={styles["modal__content-photo"]}
             >
-              Бесплатная доставка
+              <Image
+                className={styles["modal__content-photo-image"]}
+                src="/Hand/hand.png"
+                alt="Рука"
+                width={900}
+                height={500}
+              />
+              <h2>
+                Мобиликс
+              </h2>
+              <div
+                className={styles["modal__content-photo-text-block"]}
+                data-text="1"
+              >
+                Бесплатная доставка
+              </div>
+              <div
+                className={styles["modal__content-photo-text-block"]}
+                data-text="2"
+              >
+                Оплата после получения
+              </div>
+              <div
+                className={styles["modal__content-photo-text-block"]}
+                data-text="3"
+              >
+                Гарантийное обслуживание
+              </div>
             </div>
-            <div
-              className={styles["modal__content-photo-text-block"]}
-              data-text="2"
-            >
-              Оплата после получения
-            </div>
-            <div
-              className={styles["modal__content-photo-text-block"]}
-              data-text="3"
-            >
-              Гарантийное обслуживание
-            </div>
-          </div>
+          }
         </div>
       </div>
     )

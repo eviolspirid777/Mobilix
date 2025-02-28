@@ -11,6 +11,7 @@ import { ProductModal } from "@/components/ProductModal/ProductModal";
 import { ProductCard as ProductCardType} from "@/Types/ProductCard/ProductCard";
 import { LinkWithMe } from "@/components/LinkWIthMe/LinkWithMe";
 import { useMedia } from "react-use";
+import { useRouter } from "next/navigation";
 
 type OpenModalType = {
   ProductCard: boolean,
@@ -18,6 +19,9 @@ type OpenModalType = {
 }
 
 export default function Main() {
+  const naviagate = useRouter();
+
+  const [baseNumberSet, setBaseNumberSet] = useState(6)
   const [selectedItem, setSelectedItem] = useState<ProductCardType>(goods[0])
   const [open, setOpen] = useState<OpenModalType>({
     LinkWithMe: false,
@@ -45,6 +49,17 @@ export default function Main() {
     setIsBurgerMenuOpen(!isBurgerMenuOpen);
   };
 
+  const handleScrollToView = (path: string) => {
+    naviagate.push(path);
+    handleBurgerMenuToggle();
+  }
+
+  const handleTradeIn = () => {
+    setType("LinkMe");
+    handleBurgerMenuToggle();
+    setOpen(prev => ({...prev, LinkWithMe: true}))
+  }
+
   return (
     <>
       <div
@@ -71,10 +86,26 @@ export default function Main() {
             {isBurgerMenuOpen && (
               <nav className={styles["mobilix-block-header-nav-menu-mobile"]}>
                 <ul>
-                  <li>Каталог</li>
-                  <li>Акции</li>
-                  <li>Рассрочка</li>
-                  <li>Trade-IN</li>
+                  <li
+                    onClick={handleScrollToView.bind(null, "#catalog")}
+                  >
+                    Каталог
+                  </li>
+                  <li
+                    onClick={handleScrollToView.bind(null, "#credit")}
+                  >
+                    Акции
+                  </li>
+                  <li
+                    onClick={handleScrollToView.bind(null, "#credit")}
+                  >
+                    Рассрочка
+                  </li>
+                  <li
+                    onClick={handleTradeIn}
+                  >
+                    Trade-IN
+                  </li>
                   <li><span>+7(988) 559 39 56</span></li>
                 </ul>
               </nav>
@@ -98,9 +129,21 @@ export default function Main() {
               className={styles["mobilix-block-header-nav-menu"]}
             >
               <ul>
-                <li>Каталог</li>
-                <li>Акции</li>
-                <li>Рассрочка</li>
+                <li
+                  onClick={handleScrollToView.bind(null, "#catalog")}
+                >
+                  Каталог
+                </li>
+                <li
+                  onClick={handleScrollToView.bind(null, "#credit")}
+                >
+                  Акции
+                </li>
+                <li
+                  onClick={handleScrollToView.bind(null, "#credit")}
+                >
+                  Рассрочка
+                </li>
               </ul>
             </nav>
             <span>+7(988) 559 39 56</span>
@@ -121,11 +164,12 @@ export default function Main() {
             </button>
           </div>
           <div
+            id="catalog"
             className={styles["mobilix-block-main-products"]}
           >
             { isMobile ? 
               goods.map((good, index) => {
-                return index < 6 ? 
+                return index < baseNumberSet ? 
                 <ProductCard
                   key={index}
                   CardData={good}
@@ -143,11 +187,13 @@ export default function Main() {
             }
           </div>
           {
-            isMobile && 
+            (isMobile && baseNumberSet < goods.length) && 
             <div
               className={styles["mobilix-block-main-products-mobile__more-button-block"]}
             >
-              <button>
+              <button
+                onClick={setBaseNumberSet.bind(null, prev => prev + 2)}
+              >
                 Еще
               </button>
             </div>
@@ -215,6 +261,7 @@ export default function Main() {
         open={open.LinkWithMe}
         setOpen={setOpen.bind(null, prev => ({...prev, LinkWithMe: false }))}
         type={type}
+        isMobile={isMobile}
       />
     </>
   );

@@ -11,6 +11,7 @@ export const Credit: FC<CreditProps> = ({
 }) => {
   return (
     <div
+      id="credit"
       className={styles["credit-container"]}
     >
       <div

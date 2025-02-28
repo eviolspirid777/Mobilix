@@ -4,6 +4,7 @@ import { FC, MouseEvent, useLayoutEffect, useState} from "react"
 import styles from "./ProductModal.module.scss";
 import { ProductCard } from "@/Types/ProductCard/ProductCard";
 import Image from "next/image";
+import { Carousel, ConfigProvider } from "antd";
 
 type ProductModalProps = {
   setOpen: (type?: "Shop" | "LinkMe") => void;
@@ -45,32 +46,75 @@ export const ProductModal: FC<ProductModalProps> = ({
             <div
               className={styles["modal__content-photo-block"]}
             >
-              <div
-                className={styles["modal__content-photo-block-minies"]}
-              >
-                {
-                  CardData.images.map((image, index) => 
+              {
+                !isMobile ?
+                <>
+                  <div
+                    className={styles["modal__content-photo-block-minies"]}
+                  >
+                    {
+                      CardData.images.map((image, index) => 
+                      <Image
+                        key={index}
+                        src={image}
+                        alt={CardData.name}
+                        width={65}
+                        height={80}
+                        onClick={setSelectedImage.bind(null, image)}
+                        style={selectedImage === image ? {
+                        } : {
+                          opacity: "0.5"
+                        }}
+                      />)
+                    }
+                  </div>
                   <Image
-                    key={index}
-                    src={image}
+                    className={styles["modal__content-photo-block-image"]}
+                    src={selectedImage ?? ""}
                     alt={CardData.name}
-                    width={65}
-                    height={80}
-                    onClick={setSelectedImage.bind(null, image)}
-                    style={selectedImage === image ? {
+                    width={isMobile ? 200 : 950}
+                    style={isMobile ? {
+
                     } : {
-                      opacity: "0.5"
+                      width: "100%",
+                      minWidth: "300px"
                     }}
-                  />)
-                }
-              </div>
-              <Image
-                className={styles["modal__content-photo-block-image"]}
-                src={selectedImage ?? ""}
-                alt={CardData.name}
-                width={isMobile ? 100 : 950}
-                height={100}
-              />
+                    height={100}
+                  />
+                </> : 
+                <ConfigProvider
+                  theme={{
+                    components: {
+                      Carousel: {
+                        dotHeight: 3,
+                        dotWidth: 10,
+                        dotActiveWidth: 25,
+                        colorBgContainer: "#4D85FF"
+                      }
+                    }
+                  }}
+                >
+                  <Carousel
+                    adaptiveHeight
+                    style={{
+                      maxHeight: "40vh",
+                      maxWidth: "90vw"
+                    }}
+                  >
+                  {
+                    CardData.images.map((image, index) => 
+                    <Image
+                      className={styles["modal__content-photo-block-image"]}
+                      key={index}
+                      src={image}
+                      alt={CardData.name}
+                      width={55}
+                      height={80}
+                    />)
+                  }
+                  </Carousel>
+                </ConfigProvider>
+              }
             </div>
             <div
               className={styles["modal__content-photo-undertext"]}
