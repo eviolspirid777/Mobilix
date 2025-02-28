@@ -1,5 +1,5 @@
 "use client"
-import { FC, MouseEvent, useEffect, useLayoutEffect, useState} from "react"
+import { FC, MouseEvent, useLayoutEffect, useState} from "react"
 
 import styles from "./ProductModal.module.scss";
 import { ProductCard } from "@/Types/ProductCard/ProductCard";
@@ -9,12 +9,14 @@ type ProductModalProps = {
   setOpen: (type?: "Shop" | "LinkMe") => void;
   open: boolean,
   CardData: ProductCard,
+  isMobile: boolean,
 }
 
 export const ProductModal: FC<ProductModalProps> = ({
   open,
   setOpen,
-  CardData
+  CardData,
+  isMobile
 }) => {
   const [selectedImage, setSelectedImage] = useState<string>()
 
@@ -66,8 +68,8 @@ export const ProductModal: FC<ProductModalProps> = ({
                 className={styles["modal__content-photo-block-image"]}
                 src={selectedImage ?? ""}
                 alt={CardData.name}
-                width={950}
-                height={200}
+                width={isMobile ? 100 : 950}
+                height={100}
               />
             </div>
             <div
@@ -84,18 +86,22 @@ export const ProductModal: FC<ProductModalProps> = ({
           >
             <div className={styles["modal__header"]}>{CardData.name}</div>
             <div className={styles["modal__price"]}>{new Intl.NumberFormat("ru").format(CardData.price)} ₽</div>
-            <button
-              className={styles["modal__button-buy"]}
-              onClick={setOpen.bind(null, "Shop")}
+            <div
+              className={styles["modal__content-information__btn-block"]}
             >
-              Купить
-            </button>
-            <button
-              className={styles["modal__button-credit"]}
-              onClick={setOpen.bind(null, undefined)}
-            >
-              В рассрочку
-            </button>
+              <button
+                className={styles["modal__button-buy"]}
+                onClick={setOpen.bind(null, "Shop")}
+              >
+                Купить
+              </button>
+              <button
+                className={styles["modal__button-credit"]}
+                onClick={setOpen.bind(null, undefined)}
+              >
+                В рассрочку
+              </button>
+            </div>
             <span
               className={styles["modal__available"]}
             >

@@ -65,21 +65,23 @@
     }
 }
 
-@media (hover: hover) {
-    .product-card-container:hover {
-        & button {
-            display: initial;
-        }
-        & .product-card-container-information {
-            display: initial;
-        }
-    }
-}
-
 @media (max-width: 768px) {
     .product-card-container {
         &:hover {
-            
+            & button {
+                display: initial;
+            }
+            & .product-card-container-information {
+                display: flex;
+            }
+        }
+        &:active {
+            & button {
+                display: initial;
+            }
+            & .product-card-container-information {
+                display: flex;
+            }
         }
         & button {
             display: initial;

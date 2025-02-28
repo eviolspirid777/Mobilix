@@ -209,6 +209,7 @@ export default function Main() {
         open={open.ProductCard}
         setOpen={handleOpenLinkWithMe}
         CardData={selectedItem}
+        isMobile={isMobile}
       />
       <LinkWithMe
         open={open.LinkWithMe}
