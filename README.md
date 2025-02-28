@@ -12,7 +12,7 @@
 - Заходим в нужную(или создаем свою) папку и добавляем новое изображение (не забудь прописать путь к файлу в переменной в папке ```goods```).
 - Удачи!
 
-###Ниже написано как запустить проект###
+### Ниже написано как запустить проект ###
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
