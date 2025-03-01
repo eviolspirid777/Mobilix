@@ -223,10 +223,10 @@ $font-size: 1.25rem;
         margin-bottom: 100px;
 
         & button {
-          width: 155px;
+          width: 125px;
           height: 40px;
           top: 112%;
-          left: 59%;
+          left: 63.5%;
           border-radius: 8px;
           font-weight: 500;
           font-size: 1.0625rem;
@@ -243,16 +243,16 @@ $font-size: 1.25rem;
 
       & h3 {
         font-family: fonts.$sf-bold;
-        font-size: 1.45rem;
+        font-size: 1.25rem;
         top: 250px;
         left: 5%;
       }
 
       & h4 {
-        font-size: 0.7375rem;
+        font-size: 0.75rem;
         color: colors.$input-color;
         top: 285px;
-        left: 11%;
+        left: 8.5%;
       }
 
       & > button {

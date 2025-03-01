@@ -214,6 +214,8 @@
       grid-template-rows: 2fr 1fr;
       grid-template-columns: none;
       max-width: 965px;
+      overflow-y: auto;
+      overflow-x: hidden;
   
       &-information {
         &__btn-block {
@@ -320,5 +322,32 @@
     &-minies {
       display: none;
     }
+  }
+}
+
+@media (max-width: 450px) {
+  .modal__content-information__btn-block {
+    button {
+      &:first-child {
+        width: 146px;
+        height: 51px;
+        border-radius: 10px;        
+      }
+
+      &:last-child {
+        width: 146px;
+        height: 51px;
+        border-radius: 8px;
+        border-width: 1px;        
+      }
+    }
+  }
+
+  div.modal__header {
+    font-size: 1.675rem;
+  }
+
+  div.modal__price {
+    font-size: 1.675rem;
   }
 }
