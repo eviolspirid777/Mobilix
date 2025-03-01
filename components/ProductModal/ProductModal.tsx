@@ -106,7 +106,7 @@ export const ProductModal: FC<ProductModalProps> = ({
                     adaptiveHeight
                     style={{
                       maxHeight: "40vh",
-                      maxWidth: "90vw"
+                      maxWidth: "100%"
                     }}
                   >
                   {
@@ -154,7 +154,7 @@ export const ProductModal: FC<ProductModalProps> = ({
               </button>
               <button
                 className={styles["modal__button-credit"]}
-                onClick={setOpen.bind(null, undefined)}
+                onClick={setOpen.bind(null, "Shop")}
               >
                 В рассрочку
               </button>

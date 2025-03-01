@@ -9,7 +9,8 @@
   flex-shrink: 100%;
   padding-top: 3%;
   overflow: hidden;
-  width: 544px;
+  width: 50%;
+  max-width: 50%;
   height: 385px;
   display: flex;
   flex-flow: column nowrap;
@@ -35,7 +36,6 @@
   }
 
   &-image {
-    margin-top: 20px;
   }
 }
 

@@ -6,6 +6,8 @@
   @include colors.bg-gradient;
   flex-grow: .5;
   height: 385px;
+  width: 50%;
+  max-width: 50%;
   padding-top: 3%;
   overflow: hidden;
   display: flex;
@@ -32,7 +34,7 @@
   }
 
   &-image {
-    margin-top: 47px;
+    margin-top: 35px;
   }
 }
 

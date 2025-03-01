@@ -19,7 +19,7 @@ export const Gurantee: FC<GuranteeProps> = ({
         className={styles["gurantee-block-image"]}
         src="/Tiles/Iphones.png"
         alt="Iphones"
-        width={isMobile ? 332 : 392}
+        width={isMobile ? 332 : 442}
         height={186}
       />
     </div>

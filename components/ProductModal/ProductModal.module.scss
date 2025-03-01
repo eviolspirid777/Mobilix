@@ -227,6 +227,7 @@
       }
   
       &-photo {
+        width: 100%;
         &-block {
           grid-template-columns: none;
           grid-template-rows: 1fr 1fr;
@@ -237,6 +238,7 @@
   
           &-image {
             order: 0;
+            padding: 0%;
           }
 
           .ant-carousel {
@@ -347,7 +349,27 @@
     font-size: 1.675rem;
   }
 
+  div.modal__content {
+    gap: 30px;
+  }
+
   div.modal__price {
     font-size: 1.675rem;
+  }
+
+  div.modal__content-photo-undertext {
+    top: 174%;
+  }
+
+  ul.modal__list {
+    li {
+      h5 {
+        font-size: 1.1rem;
+      }
+
+      strong, span {
+        font-size: .9rem;
+      }
+    }
   }
 }
