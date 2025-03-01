@@ -106,7 +106,8 @@ export const ProductModal: FC<ProductModalProps> = ({
                     adaptiveHeight
                     style={{
                       maxHeight: "40vh",
-                      maxWidth: "100%"
+                      maxWidth: "100%",
+                      overflow: "hidden"
                     }}
                   >
                   {

@@ -188,3 +188,32 @@
     }
   }
 }
+
+@media (max-width: 450px) {
+  .modal__content {
+    max-width: 80vw;
+    max-height: 90vh;
+    padding: 0px;
+  }
+
+  .modal__content-information {
+    padding: 4%;
+    max-width: 80vw;
+    h3 {
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    span {
+      font-size: .9rem;
+    }
+
+    input {
+      font-size: .9rem;
+    }
+
+    button {
+      max-width: 90%;
+    }
+  }
+}
