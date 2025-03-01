@@ -53,34 +53,42 @@ export const ProductModal: FC<ProductModalProps> = ({
                     className={styles["modal__content-photo-block-minies"]}
                   >
                     {
-                      CardData.images.map((image, index) => 
-                      <Image
-                        key={index}
-                        src={image}
-                        alt={CardData.name}
-                        width={65}
-                        height={80}
-                        onClick={setSelectedImage.bind(null, image)}
-                        style={selectedImage === image ? {
-                        } : {
-                          opacity: "0.5"
-                        }}
-                      />)
+                      CardData.images.map((image, index) => {
+                        if(image) {
+                          return (
+                            <Image
+                              key={index}
+                              src={image}
+                              alt={CardData.name}
+                              width={65}
+                              height={80}
+                              onClick={setSelectedImage.bind(null, image)}
+                              style={selectedImage === image ? {
+                              } : {
+                                opacity: "0.5"
+                              }}
+                            />
+                          )
+                        }
+                      })
                     }
                   </div>
-                  <Image
-                    className={styles["modal__content-photo-block-image"]}
-                    src={selectedImage ?? ""}
-                    alt={CardData.name}
-                    width={isMobile ? 200 : 950}
-                    style={isMobile ? {
+                  {
+                    selectedImage &&
+                    <Image
+                      className={styles["modal__content-photo-block-image"]}
+                      src={selectedImage ?? ""}
+                      alt={CardData.name}
+                      width={isMobile ? 200 : 950}
+                      style={isMobile ? {
 
-                    } : {
-                      width: "100%",
-                      minWidth: "300px"
-                    }}
-                    height={100}
-                  />
+                      } : {
+                        width: "100%",
+                        minWidth: "300px"
+                      }}
+                      height={100}
+                    />
+                  }
                 </> : 
                 <ConfigProvider
                   theme={{
@@ -102,15 +110,20 @@ export const ProductModal: FC<ProductModalProps> = ({
                     }}
                   >
                   {
-                    CardData.images.map((image, index) => 
-                    <Image
-                      className={styles["modal__content-photo-block-image"]}
-                      key={index}
-                      src={image}
-                      alt={CardData.name}
-                      width={55}
-                      height={80}
-                    />)
+                    CardData.images.map((image, index) => {
+                      if(image) {
+                        return (
+                          <Image
+                            className={styles["modal__content-photo-block-image"]}
+                            key={index}
+                            src={image}
+                            alt={CardData.name}
+                            width={55}
+                            height={80}
+                          />
+                        )
+                      }
+                    })
                   }
                   </Carousel>
                 </ConfigProvider>

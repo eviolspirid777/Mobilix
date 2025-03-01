@@ -24,12 +24,15 @@ export const ProductCard: FC<ProductCardProps> = ({
       <div
         className={styles["product-card-container-image-block"]}
       >
-        <Image
-          src={CardData.images[0]}
-          alt={CardData.name}
-          width={500}
-          height={200}
-        />
+        {
+          CardData.images[0] && 
+          <Image
+            src={CardData.images[0]}
+            alt={CardData.name}
+            width={500}
+            height={200}
+          />
+        }
       </div>
       <div
         className={styles["product-card-container-information"]}

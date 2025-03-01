@@ -126,22 +126,22 @@
 
   &__button {
     &-buy {
-      width: 331;
-      height: 57;
+      width: 331px;
+      height: 57px;
       border-radius: 10px;
       background-color: colors.$primary-color;
       color: colors.$text-color-reverse;
       font-family: fonts.$montserrat;
       font-weight: 500;
-      font-size: 1.25rem;
+      font-size: 1.45rem;
       line-height: 24.38px;
       letter-spacing: 0%;
       text-align: center;
     }
 
     &-credit {
-      width: 334;
-      height: 39;
+      width: 334px;
+      height: 39px;
       top: 1039px;
       left: 653px;
       border-radius: 8px;
@@ -153,7 +153,6 @@
       line-height: 24.38px;
       letter-spacing: 0%;
       text-align: center;
-
     }
   }
 
@@ -287,14 +286,14 @@
     margin-top: 0px;
     & button {
       &:first-child {
-        width: 166;
-        height: 50.811431884765625;
+        width: 166px;
+        height: 51px;
         border-radius: 10px;        
       }
 
       &:last-child {
-        width: 166;
-        height: 51;
+        width: 166px;
+        height: 51px;
         border-radius: 8px;
         border-width: 1px;        
       }

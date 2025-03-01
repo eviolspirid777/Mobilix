@@ -96,7 +96,7 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
                 className={styles["modal__content-photo-image"]}
                 src="/Hand/hand.png"
                 alt="Рука"
-                width={900}
+                width={500}
                 height={500}
               />
               <h2>

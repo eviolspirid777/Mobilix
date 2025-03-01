@@ -21,8 +21,8 @@
   }
 
   &__content {
-    width: 965;
-    height: 700;
+    width: 965px;
+    height: 700px;
     border-radius: 40px;
     background: #fff;
     position: relative;
@@ -80,8 +80,8 @@
       }
 
       & button {
-        width: 331;
-        height: 57;
+        width: 331px;
+        height: 57px;
         border-radius: 10px;
         margin-top: 20px;
         align-self: center;
@@ -106,8 +106,8 @@
 
       & h2 {
         position: absolute;
-        top: 100;
-        left: 160;
+        top: 100px;
+        left: 160px;
         z-index: 2;
         font-family: fonts.$russo;
         font-weight: 400;
@@ -123,7 +123,7 @@
         transform:  rotate(-90deg)
                     scale(1.8)
                     translate(0px, 40px)
-                    scaleY(-1);;
+                    scaleY(-1);
       }
 
       &-text-block {
@@ -140,25 +140,25 @@
         height: 83;
 
         &[data-text="1"] {
-          top: 175;
-          left: 128;
-          width: 169;
+          top: 175px;
+          left: 128px;
+          width: 169px;
           border-top-right-radius: 15px;
           border-bottom-right-radius: 15px;
         }
 
         &[data-text="2"] {
-          top: 315;
-          left: 204;
-          width: 177;
+          top: 315px;
+          left: 204px;
+          width: 177px;
           border-top-left-radius: 15px;
           border-bottom-left-radius: 15px;
         }
 
         &[data-text="3"] {
-          top: 455;
-          left: 128;
-          width: 205;
+          top: 455px;
+          left: 128px;
+          width: 205px;
           border-top-right-radius: 15px;
           border-bottom-right-radius: 15px;
         }
