@@ -24,9 +24,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Начнем
 
+ALARM! Убедитесь, что на компьютере установлен Node.js прежде чем запускать сервер
+
 Первое, запустим сервер разработки:
 
 ```bash
+npm install
 npm run dev
 ```
 
