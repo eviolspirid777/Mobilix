@@ -1,27 +1,21 @@
-"use client"
-import { FC, MouseEvent, useLayoutEffect, useState} from "react"
-
-import styles from "./ProductModal.module.scss";
 import { ProductCard } from "@/Types/ProductCard/ProductCard";
+import { ConfigProvider, Carousel } from "antd";
+import { FC, MouseEvent } from "react";
 import Image from "next/image";
 
-type ProductModalProps = {
+import styles from "./ProductModalMobile.module.scss"
+
+type ProductModalMobileProps = {
   setOpen: (type?: "Shop" | "LinkMe") => void;
   open: boolean,
   CardData: ProductCard,
 }
 
-export const ProductModal: FC<ProductModalProps> = ({
+export const ProductModalMobile: FC<ProductModalMobileProps> = ({
   open,
   setOpen,
   CardData,
 }) => {
-  const [selectedImage, setSelectedImage] = useState<string>()
-
-  useLayoutEffect(() => {
-    setSelectedImage(CardData.images[0])
-  }, [CardData])
-
   const handleOuterClick = (event: MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.stopPropagation();
@@ -43,52 +37,46 @@ export const ProductModal: FC<ProductModalProps> = ({
             <div
               className={styles["modal__content-photo-block"]}
             >
-              <div
-                className={styles["modal__content-photo-block-minies"]}
+              <ConfigProvider
+                theme={{
+                  components: {
+                    Carousel: {
+                      dotHeight: 3,
+                      dotWidth: 10,
+                      dotActiveWidth: 25,
+                      colorBgContainer: "#4D85FF"
+                    }
+                  }
+                }}
               >
+                <Carousel
+                  key={CardData.images.length}
+                  adaptiveHeight
+                  style={{
+                    maxHeight: "40vh",
+                    maxWidth: "100%",
+                    width: "100%",
+                    overflow: "hidden"
+                  }}
+                >
                 {
                   CardData.images.map((image, index) => {
                     if(image) {
                       return (
                         <Image
+                          className={styles["modal__content-photo-block-image"]}
                           key={index}
                           src={image}
                           alt={CardData.name}
-                          width={65}
+                          width={55}
                           height={80}
-                          onClick={setSelectedImage.bind(null, image)}
-                          style={selectedImage === image ? {
-                          } : {
-                            opacity: "0.5"
-                          }}
                         />
                       )
                     }
                   })
                 }
-              </div>
-              {
-                selectedImage &&
-                <Image
-                  className={styles["modal__content-photo-block-image"]}
-                  src={selectedImage ?? ""}
-                  alt={CardData.name}
-                  width={950}
-                  style={{
-                    width: "100%",
-                    minWidth: "300px"
-                  }}
-                  height={100}
-                />
-              }
-            </div>
-            <div
-              className={styles["modal__content-photo-undertext"]}
-            >
-              <span>
-                Доставка сегодня 
-              </span>
-              <strong>бесплатно</strong>
+                </Carousel>
+              </ConfigProvider>
             </div>
           </div>
           <div
@@ -117,6 +105,14 @@ export const ProductModal: FC<ProductModalProps> = ({
             >
               ✓ В наличии
             </span>
+            <div
+              className={styles["modal__content-photo-undertext"]}
+            >
+              <span>
+                Доставка сегодня 
+              </span>
+              <strong>бесплатно</strong>
+            </div>
             <ul
               className={styles["modal__list"]}
             >

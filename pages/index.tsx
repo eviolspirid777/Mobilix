@@ -12,6 +12,7 @@ import { ProductCard as ProductCardType} from "@/Types/ProductCard/ProductCard";
 import { LinkWithMe } from "@/components/LinkWIthMe/LinkWithMe";
 import { useMedia } from "react-use";
 import { useRouter } from "next/navigation";
+import { ProductModalMobile } from "@/components/ProductModal/Mobile/ProductModalMobile";
 
 type OpenModalType = {
   ProductCard: boolean,
@@ -28,7 +29,7 @@ export default function Main() {
     ProductCard: false
   });
   const [type, setType] = useState<"Shop" | "LinkMe">();
-  const isMobile = useMedia('(max-width: 768px)');
+  const isMobile = useMedia('(max-width: 768px)', false);
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 
   const handleOpenProductCard = (item: ProductCardType) => {
@@ -159,7 +160,9 @@ export default function Main() {
             <h4>
               Технологии будущего
             </h4>
-            <button>
+            <button
+              onClick={setOpen.bind(null, prev => ({...prev, LinkWithMe: true }))}
+            >
               Купить
             </button>
           </div>
@@ -251,17 +254,25 @@ export default function Main() {
           </div>
         </footer>
       </div>
-      <ProductModal
-        open={open.ProductCard}
-        setOpen={handleOpenLinkWithMe}
-        CardData={selectedItem}
-        isMobile={isMobile}
-      />
+      {
+        isMobile ? 
+        <ProductModalMobile
+          open={open.ProductCard}
+          setOpen={handleOpenLinkWithMe}
+          CardData={selectedItem}
+        /> :
+        <ProductModal
+          open={open.ProductCard}
+          setOpen={handleOpenLinkWithMe}
+          CardData={selectedItem}
+        /> 
+      }
       <LinkWithMe
         open={open.LinkWithMe}
         setOpen={setOpen.bind(null, prev => ({...prev, LinkWithMe: false }))}
         type={type}
         isMobile={isMobile}
+        item={selectedItem}
       />
     </>
   );

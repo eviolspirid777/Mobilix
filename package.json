@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "antd": "^5.24.2",
+    "axios": "^1.8.1",
     "next": "15.1.7",
     "rc-pagination": "^5.1.0",
     "rc-picker": "^4.11.3",
