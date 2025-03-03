@@ -14,6 +14,12 @@ import { useMedia } from "react-use";
 import { useRouter } from "next/navigation";
 import { ProductModalMobile } from "@/components/ProductModal/Mobile/ProductModalMobile";
 
+/*
+  билд докер контейнера: docker build -t mobilix-container .
+  запуск контейнера: docker run -p 3000:3000 mobilix-container
+*/
+
+
 type OpenModalType = {
   ProductCard: boolean,
   LinkWithMe: boolean,
