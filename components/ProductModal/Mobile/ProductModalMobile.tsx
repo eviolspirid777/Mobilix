@@ -61,18 +61,16 @@ export const ProductModalMobile: FC<ProductModalMobileProps> = ({
                 >
                 {
                   CardData.images.map((image, index) => {
-                    if(image) {
-                      return (
-                        <Image
-                          className={styles["modal__content-photo-block-image"]}
-                          key={index}
-                          src={image}
-                          alt={CardData.name}
-                          width={55}
-                          height={80}
-                        />
-                      )
-                    }
+                    return (
+                      <Image
+                        className={styles["modal__content-photo-block-image"]}
+                        key={index}
+                        src={image}
+                        alt={CardData.name}
+                        width={55}
+                        height={80}
+                      />
+                    )
                   })
                 }
                 </Carousel>

@@ -5,6 +5,8 @@ import { ProductCard as ProductCardType} from "@/Types/ProductCard/ProductCard";
 import styles from "./LinkWithMe.module.scss";
 import Image from "next/image";
 import axios from "axios";
+import { TelegramIcon } from "../shared/TelegramIcon";
+import { WhatsappIcon } from "../shared/WhatsappIcon";
 
 type LinkWithMeProps = {
   setOpen: () => void;
@@ -47,108 +49,134 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
     }
   };
 
-    return (
+  const handleRedirectClick = (key: "whatsapp" | "telegram") => {
+    if(typeof window !== "undefined") {
+      switch (key) {
+        case "telegram": {
+          window.open('https://t.me/your_telegram_link', '_blank');
+          break;
+        }
+        case "whatsapp": {
+          window.open('https://wa.me/777777777', '_blank');
+        }
+      }
+    }
+  }
+
+  return (
+    <div
+      className={`${styles["modal"]} ${open && styles["active"]}`}
+      onClick={handleOuterClick}
+    >
       <div
-        className={`${styles["modal"]} ${open && styles["active"]}`}
-        onClick={handleOuterClick}
+        className={styles["modal__content"]}
+        onClick={event => event.stopPropagation()}
       >
         <div
-          className={styles["modal__content"]}
-          onClick={event => event.stopPropagation()}
+          className={styles["modal__content-information"]}
         >
-          <div
-            className={styles["modal__content-information"]}
+          <h3
+            style={(isMobile && type === "LinkMe") ? {
+              fontSize: "1.3rem"
+            } : {
+              fontSize: "1.8rem"
+            }}
           >
-            <h3
-              style={(isMobile && type === "LinkMe") ? {
-                fontSize: "1.3rem"
-              } : {
-                fontSize: "1.8rem"
-              }}
-            >
-              {type === "LinkMe" ? "Расскажем в WhatsApp о лучших условиях" : "Товар добавлен в корзину!"}
-            </h3>
-            <span>
-              {
-                type === "LinkMe" ?
-                "Об условиях рассрочки, Trade-IN и действующих скидках и акциях!" :
-                "Мы уточним удобное время доставки, просто оставьте номер телефона"
-              }
-            </span>
-            <input
-              type="text"
-              placeholder="Номер"
-              onChange={event => setPhone(event.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Имя"
-              onChange={event => setName(event.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Пожелания"
-              onChange={event => setWishes(event.target.value)}
-            />
-            <button
-              onClick={handleSubmit}
-              style={(isMobile && type === "LinkMe") ? {
-                marginTop: "0px"
-              } : {}
-              }
-            >
-              Свяжитесь со мной
-            </button>
+            {type === "LinkMe" ? "Расскажем в WhatsApp о лучших условиях" : "Товар добавлен в корзину!"}
+          </h3>
+          <span>
             {
-              isMobile && 
-              <span
-                className={styles["modal__content-information__tile"]}
-                style={(isMobile && type === "LinkMe") ? {
-                  marginTop: "0px"
-                } : {
-  
-                }}
-              >
-                Оплата после получения
-              </span>
+              type === "LinkMe" ?
+              "Об условиях рассрочки, Trade-IN и действующих скидках и акциях!" :
+              "Мы уточним удобное время доставки, просто оставьте номер телефона"
             }
+          </span>
+          <input
+            type="text"
+            placeholder="Номер"
+            onChange={event => setPhone(event.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Имя"
+            onChange={event => setName(event.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Пожелания"
+            onChange={event => setWishes(event.target.value)}
+          />
+          <button
+            onClick={handleSubmit}
+            style={(isMobile && type === "LinkMe") ? {
+              marginTop: "0px"
+            } : {
+              marginTop: "-10px"
+            }
+            }
+          >
+            Свяжитесь со мной
+          </button>
+          <div
+            className={styles["modal__content-information-contacts-block"]}
+          >
+            <a href="tel:+79885593956">+7(988) 559 39 56</a>
+            <div
+              className={styles["modal__content-information-contacts-block-icons-block"]}
+            >
+              <TelegramIcon
+                onClick={handleRedirectClick.bind(null, "telegram")}
+              />
+              <WhatsappIcon
+                onClick={handleRedirectClick.bind(null, "whatsapp")}
+              />
+            </div>
           </div>
           {
-            !isMobile &&
-            <div
-              className={styles["modal__content-photo"]}
+            isMobile && 
+            <span
+              className={styles["modal__content-information__tile"]}
             >
-              <Image
-                className={styles["modal__content-photo-image"]}
-                src="/Hand/hand.png"
-                alt="Рука"
-                width={500}
-                height={500}
-              />
-              <h2>
-                Мобиликс
-              </h2>
-              <div
-                className={styles["modal__content-photo-text-block"]}
-                data-text="1"
-              >
-                Бесплатная доставка
-              </div>
-              <div
-                className={styles["modal__content-photo-text-block"]}
-                data-text="2"
-              >
-                Оплата после получения
-              </div>
-              <div
-                className={styles["modal__content-photo-text-block"]}
-                data-text="3"
-              >
-                Гарантийное обслуживание
-              </div>
-            </div>
+              Оплата после получения
+            </span>
           }
         </div>
+        {
+          !isMobile &&
+          <div
+            className={styles["modal__content-photo"]}
+          >
+            <Image
+              className={styles["modal__content-photo-image"]}
+              src="/Hand/hand.png"
+              alt="Рука"
+              width={500}
+              height={500}
+            />
+            <h2>
+              Мобиликс
+            </h2>
+            <div
+              className={styles["modal__content-photo-text-block"]}
+              data-text="1"
+            >
+              Бесплатная доставка
+            </div>
+            <div
+              className={styles["modal__content-photo-text-block"]}
+              data-text="2"
+            >
+              Оплата после получения
+            </div>
+            <div
+              className={styles["modal__content-photo-text-block"]}
+              data-text="3"
+            >
+              Гарантийное обслуживание
+            </div>
+          </div>
+        }
       </div>
-    )
+    </div>
+  )
 }

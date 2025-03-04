@@ -94,6 +94,40 @@
         letter-spacing: 0%;
         text-align: center;
       }
+
+      &-contacts-block {
+        align-self: center;
+        margin-top: -20px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        & a {
+          font-size: 1.2rem;
+          font-family: fonts.$montserrat;
+          font-weight: 500;
+          color: colors.$input-color;
+          text-decoration: none;
+        }
+        &-icons-block {
+          margin-top: 3px;
+          display: flex;
+          flex-flow: row nowrap;
+          gap: 5px;
+          align-items: center;
+          justify-content: center;
+          
+          & svg {
+            cursor: pointer;
+            &:first-child {
+              margin-top: 5px;
+            }
+            &:last-child {
+              margin-top: -3px;
+            }
+          }
+        }
+      }
     }
 
     &-photo {
@@ -122,7 +156,7 @@
         z-index: 1;
         transform:  rotate(-90deg)
                     scale(1.8)
-                    translate(0px, 40px)
+                    translate(10px, 40px)
                     scaleY(-1);
       }
 
@@ -202,7 +236,7 @@
     h3 {
       margin-top: 20px;
       font-size: 1.1rem;
-      text-align: center;
+      text-align: left;
       line-height: 30px;
     }
 
@@ -216,6 +250,44 @@
 
     button {
       max-width: 90%;
+    }
+
+    &__tile {
+      margin-top: -25px;
+    }
+
+    &-contacts-block {
+      align-self: center;
+      margin-top: -20px;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+      & a {
+        font-size: 1rem;
+        font-family: fonts.$montserrat;
+        font-weight: 500;
+        color: colors.$input-color;
+        text-decoration: none;
+      }
+      &-icons-block {
+        margin-top: 3px;
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+        
+        & svg {
+          cursor: pointer;
+          &:first-child {
+            margin-top: 5px;
+          }
+          &:last-child {
+            margin-top: -3px;
+          }
+        }
+      }
     }
   }
 }

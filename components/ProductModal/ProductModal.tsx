@@ -48,22 +48,24 @@ export const ProductModal: FC<ProductModalProps> = ({
               >
                 {
                   CardData.images.map((image, index) => {
-                    if(image) {
-                      return (
-                        <Image
-                          key={index}
-                          src={image}
-                          alt={CardData.name}
-                          width={65}
-                          height={80}
-                          onClick={setSelectedImage.bind(null, image)}
-                          style={selectedImage === image ? {
-                          } : {
-                            opacity: "0.5"
-                          }}
-                        />
-                      )
-                    }
+                    return (
+                      <Image
+                        key={index}
+                        src={image}
+                        alt={CardData.name}
+                        width={65}
+                        height={80}
+                        onClick={setSelectedImage.bind(null, image)}
+                        style={selectedImage === image ? {
+                          height: "inherit",
+                          width:"inherit"
+                        } : {
+                          opacity: "0.5",
+                          height: "inherit",
+                          width:"inherit"
+                        }}
+                      />
+                    )
                   })
                 }
               </div>
