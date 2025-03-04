@@ -3,7 +3,7 @@ import { ProductCard } from "@/Types/ProductCard/ProductCard";
 export const goods: ProductCard[] = [
     {
         images: [
-            "/iphones/iphone16ProMaxDesert/Iphone16ProMaxDesert[1].png",
+            "/iphones/iphone16ProMaxDesert/iphone16ProMaxDesert[1].png",
             "/iphones/iphone16ProMaxDesert/iphone16ProMaxDesert[2].png",
             "/iphones/iphone16ProMaxDesert/iphone16ProMaxDesert[3].png",
             "/iphones/iphone16ProMaxDesert/iphone16ProMaxDesert[4].png",
