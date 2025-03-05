@@ -53,11 +53,11 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
     if(typeof window !== "undefined") {
       switch (key) {
         case "telegram": {
-          window.open('https://t.me/your_telegram_link', '_blank');
+          window.open('https://t.me/mobilx_23', '_blank');
           break;
         }
         case "whatsapp": {
-          window.open('https://wa.me/777777777', '_blank');
+          window.open('https://wa.me/79933093956', '_blank');
         }
       }
     }
