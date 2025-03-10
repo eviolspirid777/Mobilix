@@ -9,7 +9,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "256 Гб",
         name: "iPhone 16 Pro Max",
-        price: 110990,
+        price: 109990,
         accumulator: "4676",
         camera: {
             back: "48",
