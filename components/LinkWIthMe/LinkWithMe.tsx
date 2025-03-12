@@ -1,7 +1,7 @@
 "use client"
 import { FC, MouseEvent, useState} from "react"
-
 import { ProductCard as ProductCardType} from "@/Types/ProductCard/ProductCard";
+import { NumericFormat } from "react-number-format"; // Импортируем NumericFormat
 import styles from "./LinkWithMe.module.scss";
 import Image from "next/image";
 import axios from "axios";
@@ -26,6 +26,7 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
   const [name, setName] = useState<string>();
   const [phone, setPhone] = useState<string>();
   const [wishes, setWishes] = useState<string>();
+  const [isPhoneError, setIsPhoneError] = useState<boolean>(false); // Состояние ошибки для телефона
 
   const handleOuterClick = (event: MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -34,18 +35,31 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
   }
 
   const handleSubmit = async () => {
+    if (!phone || phone.trim() === "") {
+      setIsPhoneError(true); // Устанавливаем флаг ошибки, если поле пустое
+      return;
+    }
+
     try {
       const response = await axios.post("/api/telegramProxy", {
         phone,
         name,
         wishes,
-        itemName: item?.name
+        itemName: item?.name,
       });
       if (response.data.success) {
         setOpen();
       }
     } catch (error) {
       console.error("Ошибка при отправке сообщения:", error);
+    }
+  };
+
+  const handlePhoneNumber = (values: {value: string}) => {
+    const maxLength = 11; // Максимальная длина без префикса
+    setIsPhoneError(false)
+    if (values.value.length <= maxLength) {
+      setPhone(values.value); // Значение без форматирования
     }
   };
 
@@ -91,10 +105,12 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
               "Мы уточним удобное время доставки, просто оставьте номер телефона"
             }
           </span>
-          <input
-            type="text"
-            placeholder="Номер"
-            onChange={event => setPhone(event.target.value)}
+          <NumericFormat
+            prefix="+7 "
+            placeholder={isPhoneError ? "Укажите номер телефона" : "+7 (___) ___-__-__ *"}
+            onValueChange={handlePhoneNumber}
+            value={phone}
+            className={`${styles["input"]} ${isPhoneError ? styles["input-error"] : ""}`}
           />
           <input
             type="text"
