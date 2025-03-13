@@ -25,6 +25,7 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
 }) => {
   const [name, setName] = useState<string>();
   const [phone, setPhone] = useState<string>();
+  const [phoneValidationString, setPhoneValidationString] = useState<string>();
   const [wishes, setWishes] = useState<string>();
   const [isPhoneError, setIsPhoneError] = useState<boolean>(false); // Состояние ошибки для телефона
 
@@ -40,7 +41,7 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
       return;
     }
 
-    if(phone.length !== 18) {
+    if(phoneValidationString?.length !== 10) {
       setIsPhoneError(true);
       return;
     }
@@ -64,7 +65,8 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
   };
 
   const handlePhoneNumber = (values: {formattedValue: string ,value: string}) => {
-    setPhone(values.formattedValue); // Значение без форматирования
+    setPhoneValidationString(values.value)
+    setPhone(values.formattedValue);
     setIsPhoneError(false);
   };
 
