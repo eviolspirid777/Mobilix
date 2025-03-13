@@ -35,7 +35,12 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
   }
 
   const handleSubmit = async () => {
-    if (!phone || phone.trim() === "" || phone.length !== 18) {
+    if (!phone || phone.trim() === "") {
+      setIsPhoneError(true);
+      return;
+    }
+
+    if(phone.length !== 18) {
       setIsPhoneError(true);
       return;
     }
