@@ -1,7 +1,7 @@
 "use client"
 import { FC, MouseEvent, useState} from "react"
 import { ProductCard as ProductCardType} from "@/Types/ProductCard/ProductCard";
-import { NumericFormat, PatternFormat } from "react-number-format"; // Импортируем NumericFormat
+import { PatternFormat } from "react-number-format"; // Импортируем NumericFormat
 import styles from "./LinkWithMe.module.scss";
 import Image from "next/image";
 import axios from "axios";
