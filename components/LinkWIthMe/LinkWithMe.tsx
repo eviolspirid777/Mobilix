@@ -1,7 +1,7 @@
 "use client"
 import { FC, MouseEvent, useState} from "react"
 import { ProductCard as ProductCardType} from "@/Types/ProductCard/ProductCard";
-import { NumericFormat } from "react-number-format"; // Импортируем NumericFormat
+import { NumericFormat, PatternFormat } from "react-number-format"; // Импортируем NumericFormat
 import styles from "./LinkWithMe.module.scss";
 import Image from "next/image";
 import axios from "axios";
@@ -35,8 +35,8 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
   }
 
   const handleSubmit = async () => {
-    if (!phone || phone.trim() === "") {
-      setIsPhoneError(true); // Устанавливаем флаг ошибки, если поле пустое
+    if (!phone || phone.trim() === "" || phone.length !== 18) {
+      setIsPhoneError(true);
       return;
     }
 
@@ -58,12 +58,9 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
     }
   };
 
-  const handlePhoneNumber = (values: {value: string}) => {
-    const maxLength = 11; // Максимальная длина без префикса
-    setIsPhoneError(false)
-    if (values.value.length <= maxLength) {
-      setPhone(values.value); // Значение без форматирования
-    }
+  const handlePhoneNumber = (values: {formattedValue: string ,value: string}) => {
+    setPhone(values.formattedValue); // Значение без форматирования
+    setIsPhoneError(false);
   };
 
   const handleRedirectClick = (key: "whatsapp" | "telegram") => {
@@ -108,13 +105,26 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
               "Мы уточним удобное время доставки, просто оставьте номер телефона"
             }
           </span>
-          <NumericFormat
-            prefix="+7 "
-            placeholder={isPhoneError ? "Укажите номер телефона" : "+7 (___) ___-__-__ *"}
-            onValueChange={handlePhoneNumber}
-            value={phone}
-            className={`${styles["input"]} ${isPhoneError ? styles["input-error"] : ""}`}
-          />
+          <div style={{
+            width:"100%",
+            position:"relative"
+          }}>
+            <PatternFormat
+              prefix="+7 "
+              format="+7 (###) ###-##-##"
+              placeholder={"+7 (___) ___-__-__ *"}
+              onValueChange={handlePhoneNumber}
+              value={phone}
+              className={`${styles["input"]}`}
+            />
+            { isPhoneError &&
+              <p
+                className={styles["warning"]}
+              >
+                Неправильно введен номер телефона!
+              </p>
+            }
+          </div>
           <input
             type="text"
             placeholder="Имя"

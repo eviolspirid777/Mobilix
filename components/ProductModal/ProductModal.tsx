@@ -28,6 +28,13 @@ export const ProductModal: FC<ProductModalProps> = ({
     setOpen(undefined);
   }
 
+  const handleBuy = () => {
+    if("ym" in window && typeof window.ym === "function") {
+      window.ym(100313407,'reachGoal','onclick')
+    }
+    setOpen("Shop")
+  }
+
     return (
       <div
         className={`${styles["modal"]} ${open && styles["active"]}`}
@@ -103,7 +110,7 @@ export const ProductModal: FC<ProductModalProps> = ({
             >
               <button
                 className={styles["modal__button-buy"]}
-                onClick={setOpen.bind(null, "Shop")}
+                onClick={handleBuy}
               >
                 Купить
               </button>

@@ -303,3 +303,12 @@
     color: #ff2c00 !important;
   }
 }
+
+.warning {
+  color: #ff2c00;
+  font-family: fonts.$montserrat;
+  font-size: .8rem;
+  position: absolute;
+  top: 110%;
+  left: 0%;
+}
