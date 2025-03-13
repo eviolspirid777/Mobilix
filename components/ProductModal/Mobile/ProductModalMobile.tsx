@@ -29,6 +29,13 @@ export const ProductModalMobile: FC<ProductModalMobileProps> = ({
     setOpen("Shop")
   }
 
+  const handleCredit = () => {
+    if("ym" in window && typeof window.ym === "function") {
+      window.ym(100313407,'reachGoal','installment')
+    }
+    setOpen("LinkMe")
+  }
+
     return (
       <div
         className={`${styles["modal"]} ${open && styles["active"]}`}
@@ -100,7 +107,7 @@ export const ProductModalMobile: FC<ProductModalMobileProps> = ({
               </button>
               <button
                 className={styles["modal__button-credit"]}
-                onClick={setOpen.bind(null, "LinkMe")}
+                onClick={handleCredit}
               >
                 В рассрочку
               </button>
