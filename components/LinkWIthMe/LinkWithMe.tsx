@@ -50,6 +50,9 @@ export const LinkWithMe: FC<LinkWithMeProps> = ({
       if (response.data.success) {
         setOpen();
       }
+      if("ym" in window && typeof window.ym === "function") {
+        window.ym(100313407,'reachGoal','forma')
+      }
     } catch (error) {
       console.error("Ошибка при отправке сообщения:", error);
     }
