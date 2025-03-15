@@ -7,7 +7,7 @@ export default async function handler(
 ) {
   const { phone, name, wishes, itemName } = req.body;
   const botToken = "7072850601:AAH2MhtYa3SzxfoxDYt4xtAa2FOGb_pHlf4"; // Замените на токен вашего бота
-  const chatIds = ["1175000586"]; // Добавьте ID вашего чата
+  const chatIds = ["1175000586", "50466403", "1460797386"]; // Добавьте ID вашего чата
 
   const message = `Новая заявка!\nИмя: ${name}\nТелефон: ${phone}\nПожелания: ${wishes}\nНазвание товара: ${itemName}`;
 
