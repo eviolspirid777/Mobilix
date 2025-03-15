@@ -9,7 +9,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "256 Гб",
         name: "iPhone 16 Pro Max",
-        price: 109990,
+        price: 104490,
         accumulator: "4676",
         camera: {
             back: "48",
@@ -26,7 +26,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "512 Гб",
         name: "iPhone 16 Pro Max",
-        price: 128990,
+        price: 125990,
         accumulator: "4676",
         camera: {
             back: "48",
@@ -43,7 +43,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "1 Тб",
         name: "iPhone 16 Pro",
-        price: 147990,
+        price: 134990,
         accumulator: "4676",
         camera: {
             back: "48",
@@ -77,7 +77,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "256 Гб",
         name: "iPhone 16 Pro",
-        price: 99490,
+        price: 98490,
         accumulator: "3355",
         camera: {
             back: "48",
@@ -94,7 +94,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "512 Гб",
         name: "iPhone 16 Pro",
-        price: 126900,
+        price: 120900,
         accumulator: "3355",
         camera: {
             back: "48",
@@ -128,7 +128,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "256 Гб",
         name: "iPhone 16",
-        price: 75490,
+        price: 74490,
         accumulator: "3561",
         camera: {
             back: "48",
@@ -145,7 +145,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "256 Гб",
         name: "iPhone 15 Pro Max",
-        price: 96990,
+        price: 95990,
         accumulator: "4422",
         camera: {
             back: "48",
@@ -162,7 +162,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "512 Гб",
         name: "iPhone 15 Pro Max",
-        price: 107990,
+        price: 105490,
         accumulator: "4422",
         camera: {
             back: "48",
@@ -179,7 +179,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "1 Тб",
         name: "iPhone 15 Pro Max",
-        price: 110990,
+        price: 110490,
         accumulator: "4422",
         camera: {
             back: "48",
@@ -196,7 +196,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "128 Гб",
         name: "iPhone 15 Pro",
-        price: 83990,
+        price: 82990,
         accumulator: "3650",
         camera: {
             back: "48",
@@ -230,7 +230,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "512 Гб",
         name: "iPhone 15 Pro",
-        price: 107990,
+        price: 104990,
         accumulator: "3650",
         camera: {
             back: "48",
@@ -247,7 +247,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "128 Гб",
         name: "iPhone 15",
-        price: 59490,
+        price: 58490,
         accumulator: "3349",
         camera: {
             back: "48",
@@ -281,7 +281,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "512 Гб",
         name: "iPhone 16 Pro Max",
-        price: 127990,
+        price: 124990,
         accumulator: "4676",
         camera: {
             back: "48",
@@ -298,7 +298,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "1 Тб",
         name: "iPhone 16 Pro",
-        price: 135990,
+        price: 133990,
         accumulator: "3355",
         camera: {
             back: "48",
@@ -315,7 +315,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "1 Тб",
         name: "iPhone 15 Pro",
-        price: 117490,
+        price: 115490,
         accumulator: "3650",
         camera: {
             back: "48",
