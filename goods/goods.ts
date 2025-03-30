@@ -94,7 +94,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "512 Гб",
         name: "iPhone 16 Pro",
-        price: 117900,
+        price: 114990,
         accumulator: "3355",
         camera: {
             back: "48",
@@ -111,7 +111,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "128 Гб",
         name: "iPhone 16",
-        price: 64990,
+        price: 63990,
         accumulator: "3561",
         camera: {
             back: "48",
@@ -162,7 +162,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "512 Гб",
         name: "iPhone 15 Pro Max",
-        price: 103490,
+        price: 101990,
         accumulator: "4422",
         camera: {
             back: "48",
@@ -179,7 +179,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "1 Тб",
         name: "iPhone 15 Pro Max",
-        price: 116490,
+        price: 109490,
         accumulator: "4422",
         camera: {
             back: "48",
@@ -196,7 +196,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "128 Гб",
         name: "iPhone 15 Pro",
-        price: 82990,
+        price: 81990,
         accumulator: "3650",
         camera: {
             back: "48",
@@ -213,7 +213,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "256 Гб",
         name: "iPhone 15 Pro",
-        price: 93990,
+        price: 91990,
         accumulator: "3650",
         camera: {
             back: "48",
@@ -281,7 +281,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "1 Тб",
         name: "iPhone 16 Pro Max",
-        price: 137990,
+        price: 134990,
         accumulator: "4676",
         camera: {
             back: "48",
@@ -298,7 +298,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "1 Тб",
         name: "iPhone 16 Pro",
-        price: 130990,
+        price: 128990,
         accumulator: "3355",
         camera: {
             back: "48",
@@ -315,7 +315,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "1 Тб",
         name: "iPhone 15 Pro",
-        price: 109990,
+        price: 107990,
         accumulator: "3650",
         camera: {
             back: "48",
