@@ -315,7 +315,7 @@ export const goods: ProductCard[] = [
         ],
         memory: "1 Тб",
         name: "iPhone 15 Pro",
-        price: 101990,
+        price: 100990,
         accumulator: "3650",
         camera: {
             back: "48",
